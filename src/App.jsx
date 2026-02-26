@@ -586,9 +586,11 @@ export default function App() {
                 <div style={{ fontSize: 15, fontWeight: 700, color: "rgba(255,255,255,0.5)", marginBottom: 6, fontFamily: "'Space Grotesk', sans-serif" }}>go follow them!! seriously!!</div>
                 <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginBottom: 14, fontStyle: "italic" }}>they deserve the world and also your spotify streams</div>
                 <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
-                  <LinkButton href="https://open.spotify.com/artist/4P5YlNVhOlSnIPTPN7jyGf" icon={<SpotifyIcon />} label="Spotify" color="rgba(29, 185, 84, 0.2)" />
-                  <LinkButton href="https://www.youtube.com/@LNGSHOT_official" icon={<span style={{ fontSize: 13 }}>▶</span>} label="YouTube" color="rgba(255, 0, 0, 0.15)" />
-                  <LinkButton href="https://www.instagram.com/lngshot_official/" icon={<span style={{ fontSize: 13 }}>📸</span>} label="Instagram" color="rgba(225, 48, 108, 0.15)" />
+                  <LinkButton href="https://open.spotify.com/artist/2F4oTJOWkcD1JaTeKEa9h6?si=lHyAu2thR_C47o5uBJnk2Q" icon={<SpotifyIcon />} label="Spotify" color="rgba(29, 185, 84, 0.2)" />
+                  <LinkButton href="https://www.youtube.com/@LNGSHOT4SHO" icon={<span style={{ fontSize: 13 }}>▶</span>} label="YouTube" color="rgba(255, 0, 0, 0.15)" />
+                  <LinkButton href="https://www.instagram.com/lngshot4sho/" icon={<span style={{ fontSize: 13 }}>📸</span>} label="Instagram" color="rgba(225, 48, 108, 0.15)" />
+                  <LinkButton href="https://www.tiktok.com/@lngshot4sho" icon={<span style={{ fontSize: 13 }}>🎵</span>} label="TikTok" color="rgba(255, 255, 255, 0.1)" />
+                  <LinkButton href="https://x.com/lngshot4sho" icon={<span style={{ fontSize: 13 }}>𝕏</span>} label="Twitter" color="rgba(255, 255, 255, 0.1)" />
                 </div>
               </div>
             )}
