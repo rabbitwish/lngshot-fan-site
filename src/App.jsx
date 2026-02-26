@@ -245,8 +245,8 @@ function SpotifyTrackCard({ title, subtitle, spotifyId, color, mood }) {
       }}>
       <div style={{ width: 48, height: 48, borderRadius: 10, background: `linear-gradient(135deg, ${color || "#1DB954"}, ${color || "#1DB954"}88)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>{mood || "🎵"}</div>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 14, fontWeight: 700, color: "#fff", fontFamily: "'Space Grotesk', sans-serif" }}>{title}</div>
-        <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>{subtitle}</div>
+        <div style={{ fontSize: 16, fontWeight: 700, color: "#fff", fontFamily: "'Space Grotesk', sans-serif" }}>{title}</div>
+        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>{subtitle}</div>
       </div>
       <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#1DB954", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "transform 0.2s", transform: hover ? "scale(1.1)" : "none" }}><PlayIcon /></div>
     </a>
@@ -267,8 +267,8 @@ function SpotifyAlbumCard({ title, type, date, trackCount, spotifyAlbumId, color
       }}>
       <div style={{ width: 52, height: 52, borderRadius: 10, background: `linear-gradient(135deg, ${color}, ${color}66)`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><MusicIcon /></div>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 15, fontWeight: 700, color: "#fff", fontFamily: "'Space Grotesk', sans-serif" }}>{title}</div>
-        <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 3 }}>{type} · {date} · {trackCount} tracks</div>
+        <div style={{ fontSize: 17, fontWeight: 700, color: "#fff", fontFamily: "'Space Grotesk', sans-serif" }}>{title}</div>
+        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 3 }}>{type} · {date} · {trackCount} tracks</div>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "6px 14px", borderRadius: 20, background: hover ? "rgba(29, 185, 84, 0.25)" : "rgba(29, 185, 84, 0.15)", fontSize: 11, fontWeight: 600, color: "#1DB954", fontFamily: "'Space Grotesk', sans-serif", flexShrink: 0, transition: "background 0.2s" }}><SpotifyIcon /> Play</div>
     </a>
@@ -293,7 +293,7 @@ function FanNote({ text, small = false }) {
     <div style={{
       background: "rgba(255, 182, 193, 0.08)", border: "1px solid rgba(255, 182, 193, 0.18)",
       borderRadius: 14, padding: small ? "10px 14px" : "14px 18px",
-      fontSize: small ? 12 : 13, color: "rgba(255,255,255,0.65)", lineHeight: 1.7,
+      fontSize: small ? 14 : 15, color: "rgba(255,255,255,0.65)", lineHeight: 1.7,
       fontStyle: "italic", position: "relative",
       fontFamily: "'Space Grotesk', sans-serif",
     }}>
@@ -310,7 +310,7 @@ function FunFact({ text }) {
     <div style={{
       background: "rgba(255, 215, 0, 0.06)", border: "1px solid rgba(255, 215, 0, 0.15)",
       borderRadius: 12, padding: "10px 14px", marginTop: 10,
-      fontSize: 12, color: "rgba(255,255,255,0.55)", lineHeight: 1.6,
+      fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.6,
       fontFamily: "'Space Grotesk', sans-serif",
     }}>
       <span style={{ marginRight: 6 }}>✨</span>
@@ -334,11 +334,11 @@ function SongCard({ song, album, onClick, index }) {
       }}>
       <div style={{ width: 40, height: 40, borderRadius: 12, background: `linear-gradient(135deg, ${album.color}88, ${album.color}44)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, flexShrink: 0 }}>{song.mood}</div>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 15, fontWeight: 600, color: "#fff", display: "flex", alignItems: "center", gap: 8, fontFamily: "'Space Grotesk', sans-serif" }}>
+        <div style={{ fontSize: 17, fontWeight: 600, color: "#fff", display: "flex", alignItems: "center", gap: 8, fontFamily: "'Space Grotesk', sans-serif" }}>
           {song.title}
-          {song.titleTrack && <span style={{ fontSize: 9, background: album.color, color: "#fff", padding: "2px 8px", borderRadius: 20, fontWeight: 700, letterSpacing: 0.5 }}>TITLE</span>}
+          {song.titleTrack && <span style={{ fontSize: 10, background: album.color, color: "#fff", padding: "2px 8px", borderRadius: 20, fontWeight: 700, letterSpacing: 0.5 }}>TITLE</span>}
         </div>
-        <div style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 3, fontStyle: "italic" }}>{song.vibe}</div>
+        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.35)", marginTop: 3, fontStyle: "italic" }}>{song.vibe}</div>
       </div>
       <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 18, transition: "all 0.2s", transform: hover ? "translateX(3px)" : "none" }}>→</div>
     </div>
@@ -351,7 +351,7 @@ function LinkButton({ href, icon, label, color = "rgba(255,255,255,0.1)" }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer"
       onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
-      style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 20, border: "none", background: hover ? "rgba(255,255,255,0.18)" : color, color: "#fff", fontSize: 12, cursor: "pointer", textDecoration: "none", transition: "all 0.2s", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 500 }}>
+      style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 20, border: "none", background: hover ? "rgba(255,255,255,0.18)" : color, color: "#fff", fontSize: 14, cursor: "pointer", textDecoration: "none", transition: "all 0.2s", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 500 }}>
       {icon}{label}
     </a>
   );
@@ -366,16 +366,16 @@ function RandomFunFact() {
       borderRadius: 14, padding: "14px 18px", marginBottom: 24,
     }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255, 215, 0, 0.6)", letterSpacing: 1, fontFamily: "'Space Grotesk', sans-serif" }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "rgba(255, 215, 0, 0.6)", letterSpacing: 1, fontFamily: "'Space Grotesk', sans-serif" }}>
           ✨ DID YOU KNOW?
         </div>
         <button onClick={() => setIdx((idx + 1) % FUN_FACTS.length)} style={{
           background: "rgba(255, 215, 0, 0.1)", border: "none", color: "rgba(255, 215, 0, 0.6)",
-          padding: "4px 10px", borderRadius: 12, cursor: "pointer", fontSize: 10,
+          padding: "4px 10px", borderRadius: 12, cursor: "pointer", fontSize: 12,
           fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, transition: "background 0.2s",
         }}>another one →</button>
       </div>
-      <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, fontFamily: "'Space Grotesk', sans-serif" }}>
+      <div style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, fontFamily: "'Space Grotesk', sans-serif" }}>
         {FUN_FACTS[idx]}
       </div>
     </div>
@@ -396,17 +396,17 @@ function SongDetail({ song, album, onBack }) {
       <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 6 }}>
         <div style={{ width: 56, height: 56, borderRadius: 16, background: `linear-gradient(135deg, ${album.color}, ${album.color}88)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28 }}>{song.mood}</div>
         <div>
-          <h2 style={{ margin: 0, fontSize: 26, fontWeight: 800, color: "#fff", fontFamily: "'Space Grotesk', sans-serif", letterSpacing: -0.5, lineHeight: 1.2 }}>{song.title}</h2>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 3 }}>
+          <h2 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#fff", fontFamily: "'Space Grotesk', sans-serif", letterSpacing: -0.5, lineHeight: 1.2 }}>{song.title}</h2>
+          <div style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", marginTop: 3 }}>
             {album.title} · {song.duration}
-            {song.titleTrack && <span style={{ fontSize: 9, background: album.color, color: "#fff", padding: "2px 8px", borderRadius: 20, fontWeight: 700, marginLeft: 8, letterSpacing: 0.5, verticalAlign: "middle" }}>TITLE TRACK</span>}
+            {song.titleTrack && <span style={{ fontSize: 10, background: album.color, color: "#fff", padding: "2px 8px", borderRadius: 20, fontWeight: 700, marginLeft: 8, letterSpacing: 0.5, verticalAlign: "middle" }}>TITLE TRACK</span>}
           </div>
-          {song.featuring && <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", marginTop: 4 }}>feat. {song.featuring}</div>}
+          {song.featuring && <div style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", marginTop: 4 }}>feat. {song.featuring}</div>}
         </div>
       </div>
 
       {/* Vibe tag */}
-      <div style={{ display: "inline-block", padding: "5px 14px", borderRadius: 20, background: `${album.color}20`, border: `1px solid ${album.color}40`, fontSize: 12, color: album.color, fontWeight: 600, marginTop: 12, fontFamily: "'Space Grotesk', sans-serif" }}>
+      <div style={{ display: "inline-block", padding: "5px 14px", borderRadius: 20, background: `${album.color}20`, border: `1px solid ${album.color}40`, fontSize: 14, color: album.color, fontWeight: 600, marginTop: 12, fontFamily: "'Space Grotesk', sans-serif" }}>
         {song.vibe}
       </div>
 
@@ -419,7 +419,7 @@ function SongDetail({ song, album, onBack }) {
       <FunFact text={song.funFact} />
 
       {/* Credits */}
-      <div style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", marginTop: 12, marginBottom: 16, paddingLeft: 2 }}>
+      <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 12, marginBottom: 16, paddingLeft: 2 }}>
         credits: {song.credits}
       </div>
 
@@ -427,7 +427,7 @@ function SongDetail({ song, album, onBack }) {
       <SpotifyTrackCard title={song.title} subtitle={`LNGSHOT · ${album.title}`} spotifyId={song.spotifyId} color={album.color} mood={song.mood} />
 
       {/* Lyrics hint */}
-      <div style={{ marginTop: 14, padding: "12px 16px", background: "rgba(29, 185, 84, 0.08)", border: "1px solid rgba(29, 185, 84, 0.2)", borderRadius: 12, display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.5, fontFamily: "'Space Grotesk', sans-serif" }}>
+      <div style={{ marginTop: 14, padding: "12px 16px", background: "rgba(29, 185, 84, 0.08)", border: "1px solid rgba(29, 185, 84, 0.2)", borderRadius: 12, display: "flex", alignItems: "center", gap: 10, fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.5, fontFamily: "'Space Grotesk', sans-serif" }}>
         <SpotifyIcon />
         <span>open in spotify and tap the lyrics button to see synced lyrics while listening!</span>
       </div>
@@ -441,7 +441,7 @@ function SongDetail({ song, album, onBack }) {
 
       {/* Share */}
       <div style={{ marginTop: 24, padding: "16px 18px", background: "rgba(255,255,255,0.04)", borderRadius: 14, border: "1px solid rgba(255,255,255,0.06)" }}>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 10, fontFamily: "'Space Grotesk', sans-serif" }}>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 10, fontFamily: "'Space Grotesk', sans-serif" }}>
           share the love ~
         </div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
@@ -490,22 +490,22 @@ export default function App() {
       <div style={{ maxWidth: 520, margin: "0 auto", padding: "0 20px", position: "relative", zIndex: 1, paddingBottom: 40 }}>
         {/* Header */}
         <header style={{ textAlign: "center", paddingTop: 40, paddingBottom: 10, animation: "fadeIn 0.5s ease" }}>
-          <div style={{ fontSize: 13, color: "rgba(255, 182, 193, 0.5)", marginBottom: 8, fontStyle: "italic", letterSpacing: 0.5 }}>~ a fan page by a 4shoboiz ~</div>
+          <div style={{ fontSize: 15, color: "rgba(255, 182, 193, 0.5)", marginBottom: 8, fontStyle: "italic", letterSpacing: 0.5 }}>~ a fan page by a 4shoboiz ~</div>
           <div style={{ display: "inline-block", marginBottom: 6, background: "linear-gradient(135deg, #FF6B35, #E74C3C, #9B59B6, #3498DB)", backgroundSize: "300% 300%", animation: "gradientShift 4s ease infinite", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 44, fontWeight: 800, letterSpacing: -2, lineHeight: 1.1, fontFamily: "'Space Grotesk', sans-serif" }}>
             LNGSHOT
           </div>
-          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", letterSpacing: 2, fontWeight: 500, marginTop: 2 }}>MUSIC & VIBES</div>
-          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.2)", marginTop: 10, letterSpacing: 1 }}>OHYUL · RYUL · WOOJIN · LOUIS</div>
+          <div style={{ fontSize: 14, color: "rgba(255,255,255,0.35)", letterSpacing: 2, fontWeight: 500, marginTop: 2 }}>MUSIC & VIBES</div>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.2)", marginTop: 10, letterSpacing: 1 }}>OHYUL · RYUL · WOOJIN · LOUIS</div>
           <div style={{ width: 40, height: 3, borderRadius: 2, background: "linear-gradient(90deg, #FF6B35, #9B59B6)", margin: "12px auto 0" }} />
         </header>
 
         {/* Welcome message */}
         {view === "home" && !searchQuery && (
           <div style={{ textAlign: "center", padding: "12px 0 20px", animation: "fadeIn 0.6s ease" }}>
-            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.8, fontFamily: "'Space Grotesk', sans-serif" }}>
+            <div style={{ fontSize: 15, color: "rgba(255,255,255,0.4)", lineHeight: 1.8, fontFamily: "'Space Grotesk', sans-serif" }}>
               hi! welcome to my little corner of the internet dedicated to lngshot 🤍
               <br />
-              <span style={{ fontSize: 11, color: "rgba(255,255,255,0.25)" }}>listen to their music, read my thoughts, and fall in love with them like i did</span>
+              <span style={{ fontSize: 13, color: "rgba(255,255,255,0.25)" }}>listen to their music, read my thoughts, and fall in love with them like i did</span>
             </div>
           </div>
         )}
@@ -526,7 +526,7 @@ export default function App() {
             {/* Search Results */}
             {filteredSongs && (
               <div style={{ marginBottom: 24 }}>
-                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", marginBottom: 12 }}>{filteredSongs.length} result{filteredSongs.length !== 1 ? "s" : ""} {filteredSongs.length === 0 && "😢"}</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.35)", marginBottom: 12 }}>{filteredSongs.length} result{filteredSongs.length !== 1 ? "s" : ""} {filteredSongs.length === 0 && "😢"}</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {filteredSongs.map((s, i) => <SongCard key={s.id} song={s} album={s.album} index={i} onClick={() => openSong(s, s.album)} />)}
                 </div>
@@ -536,14 +536,14 @@ export default function App() {
             {/* Members */}
             {!searchQuery && (
               <div style={{ marginBottom: 24 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "rgba(255, 182, 193, 0.5)", letterSpacing: 2, marginBottom: 10, fontFamily: "'Space Grotesk', sans-serif" }}>THE BOYS</div>
-                <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "rgba(255, 182, 193, 0.5)", letterSpacing: 2, marginBottom: 10, fontFamily: "'Space Grotesk', sans-serif" }}>THE BOYS</div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                   {MEMBERS.map(m => (
-                    <div key={m.name} onClick={() => setSearchQuery(m.name.charAt(0) + m.name.slice(1).toLowerCase())} style={{ background: `${m.color}18`, border: `1px solid ${m.color}33`, borderRadius: 14, padding: "12px 14px", textAlign: "center", minWidth: 108, flexShrink: 0, cursor: "pointer", transition: "all 0.2s" }}>
-                      <div style={{ fontSize: 22, marginBottom: 4 }}>{m.emoji}</div>
-                      <div style={{ fontSize: 13, fontWeight: 700, color: m.color, fontFamily: "'Space Grotesk', sans-serif" }}>{m.name}</div>
-                      <div style={{ fontSize: 9, color: "rgba(255,255,255,0.35)", marginTop: 2, lineHeight: 1.3 }}>{m.role}</div>
-                      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", marginTop: 6, fontStyle: "italic", lineHeight: 1.4 }}>{m.note}</div>
+                    <div key={m.name} onClick={() => setSearchQuery(m.name.charAt(0) + m.name.slice(1).toLowerCase())} style={{ background: `${m.color}18`, border: `1px solid ${m.color}33`, borderRadius: 14, padding: "16px 14px", textAlign: "center", cursor: "pointer", transition: "all 0.2s" }}>
+                      <div style={{ fontSize: 26, marginBottom: 6 }}>{m.emoji}</div>
+                      <div style={{ fontSize: 16, fontWeight: 700, color: m.color, fontFamily: "'Space Grotesk', sans-serif" }}>{m.name}</div>
+                      <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 3, lineHeight: 1.3 }}>{m.role}</div>
+                      <div style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 6, fontStyle: "italic", lineHeight: 1.4 }}>{m.note}</div>
                     </div>
                   ))}
                 </div>
@@ -559,13 +559,13 @@ export default function App() {
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
                   <div style={{ width: 5, height: 28, borderRadius: 3, background: `linear-gradient(180deg, ${album.color}, ${album.color}44)` }} />
                   <div>
-                    <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", fontFamily: "'Space Grotesk', sans-serif", letterSpacing: -0.3, margin: 0 }}>{album.title}</h3>
-                    <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", marginTop: 2 }}>{album.type} · {album.date} · {album.songs.length} tracks</div>
+                    <h3 style={{ fontSize: 20, fontWeight: 800, color: "#fff", fontFamily: "'Space Grotesk', sans-serif", letterSpacing: -0.3, margin: 0 }}>{album.title}</h3>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", marginTop: 2 }}>{album.type} · {album.date} · {album.songs.length} tracks</div>
                   </div>
                 </div>
 
                 {/* Album desc */}
-                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", lineHeight: 1.6, marginBottom: 8, paddingLeft: 17 }}>{album.desc}</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.35)", lineHeight: 1.6, marginBottom: 8, paddingLeft: 17 }}>{album.desc}</div>
 
                 {/* Album fan note */}
                 <div style={{ marginBottom: 12, paddingLeft: 17 }}>
@@ -583,8 +583,8 @@ export default function App() {
             {/* Follow */}
             {!searchQuery && (
               <div style={{ background: "rgba(255,255,255,0.04)", borderRadius: 16, padding: "20px", border: "1px solid rgba(255,255,255,0.06)", marginBottom: 24, textAlign: "center" }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.5)", marginBottom: 6, fontFamily: "'Space Grotesk', sans-serif" }}>go follow them!! seriously!!</div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", marginBottom: 14, fontStyle: "italic" }}>they deserve the world and also your spotify streams</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "rgba(255,255,255,0.5)", marginBottom: 6, fontFamily: "'Space Grotesk', sans-serif" }}>go follow them!! seriously!!</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginBottom: 14, fontStyle: "italic" }}>they deserve the world and also your spotify streams</div>
                 <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
                   <LinkButton href="https://open.spotify.com/artist/4P5YlNVhOlSnIPTPN7jyGf" icon={<SpotifyIcon />} label="Spotify" color="rgba(29, 185, 84, 0.2)" />
                   <LinkButton href="https://www.youtube.com/@LNGSHOT_official" icon={<span style={{ fontSize: 13 }}>▶</span>} label="YouTube" color="rgba(255, 0, 0, 0.15)" />
@@ -595,12 +595,12 @@ export default function App() {
 
             {/* Footer */}
             <footer style={{ textAlign: "center", padding: "20px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.2)", lineHeight: 2 }}>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.2)", lineHeight: 2 }}>
                 made with so much 🤍 by a proud 4shoboiz
                 <br />
                 LNGSHOT · MORE VISION · Est. 2025
                 <br />
-                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.12)" }}>
+                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.12)" }}>
                   this is a fan-made page, not affiliated with MORE VISION or LNGSHOT
                   <br />
                   all music streamed via Spotify · lyrics available through Spotify's built-in feature
