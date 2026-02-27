@@ -581,6 +581,181 @@ function HotContent() {
   );
 }
 
+// ─── Latest Buzz (YouTube search across all channels) ───
+function LatestBuzz() {
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [activeVideo, setActiveVideo] = useState(null);
+  const [updatedAt, setUpdatedAt] = useState(null);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const res = await fetch("/api/youtube");
+        if (!res.ok) throw new Error("Failed to fetch");
+        const data = await res.json();
+        setVideos(data.videos || []);
+        setUpdatedAt(data.updatedAt);
+      } catch (e) {
+        setError("couldn't load latest buzz right now");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchVideos();
+  }, []);
+
+  const timeAgo = (dateStr) => {
+    const diff = Date.now() - new Date(dateStr).getTime();
+    const mins = Math.floor(diff / 60000);
+    if (mins < 60) return `${mins}m ago`;
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return `${hrs}h ago`;
+    const days = Math.floor(hrs / 24);
+    if (days < 7) return `${days}d ago`;
+    const weeks = Math.floor(days / 7);
+    return `${weeks}w ago`;
+  };
+
+  if (error) return null; // silently hide if API fails
+
+  return (
+    <div style={{ marginBottom: 28 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+        <div style={{
+          width: 5, height: 28, borderRadius: 3,
+          background: "linear-gradient(180deg, #FBBF24, #FBBF2444)",
+        }} />
+        <div style={{ flex: 1 }}>
+          <div style={{
+            fontSize: 14, fontWeight: 700, color: "rgba(251, 191, 36, 0.7)",
+            letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
+          }}>
+            📡 LATEST BUZZ
+          </div>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
+            fresh LNGSHOT content from across YouTube
+          </div>
+        </div>
+        {updatedAt && (
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.15)", fontFamily: "'Space Grotesk', sans-serif" }}>
+            updated {timeAgo(updatedAt)}
+          </div>
+        )}
+      </div>
+
+      {loading ? (
+        <div style={{
+          display: "flex", flexDirection: "column", alignItems: "center",
+          padding: "30px 0", gap: 10,
+        }}>
+          <div style={{
+            width: 24, height: 24, border: "3px solid rgba(251, 191, 36, 0.15)",
+            borderTopColor: "#FBBF24", borderRadius: "50%",
+            animation: "spin 0.8s linear infinite",
+          }} />
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", fontFamily: "'Space Grotesk', sans-serif" }}>
+            scanning YouTube...
+          </div>
+        </div>
+      ) : (
+        <>
+          {/* Inline player */}
+          {activeVideo && (
+            <div style={{
+              borderRadius: 14, overflow: "hidden", marginBottom: 12,
+              border: "1px solid rgba(251, 191, 36, 0.15)",
+              aspectRatio: "16/9",
+            }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0`}
+                style={{ width: "100%", height: "100%", border: "none" }}
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
+            </div>
+          )}
+
+          {/* Video list */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {videos.map((v) => (
+              <div
+                key={v.id}
+                onClick={() => setActiveVideo(v.id)}
+                style={{
+                  display: "flex", gap: 12, padding: "10px 12px",
+                  borderRadius: 12, cursor: "pointer",
+                  background: activeVideo === v.id
+                    ? "rgba(251, 191, 36, 0.08)"
+                    : "rgba(255,255,255,0.03)",
+                  border: activeVideo === v.id
+                    ? "1px solid rgba(251, 191, 36, 0.2)"
+                    : "1px solid rgba(255,255,255,0.05)",
+                  transition: "all 0.2s ease",
+                  alignItems: "center",
+                }}
+              >
+                {/* Thumbnail */}
+                <div style={{
+                  position: "relative", flexShrink: 0,
+                  width: 110, borderRadius: 8, overflow: "hidden",
+                  aspectRatio: "16/9",
+                }}>
+                  <img
+                    src={v.thumbnail}
+                    alt={v.title}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  />
+                  <div style={{
+                    position: "absolute", inset: 0,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    background: "rgba(0,0,0,0.2)",
+                  }}>
+                    <div style={{
+                      width: 26, height: 26, borderRadius: "50%",
+                      background: "rgba(255,255,255,0.85)",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                    }}>
+                      <span style={{ fontSize: 10, marginLeft: 1, color: "#111" }}>▶</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{
+                    fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.8)",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    overflow: "hidden", textOverflow: "ellipsis",
+                    display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
+                    lineHeight: 1.4,
+                  }}>
+                    {v.title}
+                  </div>
+                  <div style={{
+                    fontSize: 12, color: "rgba(255,255,255,0.3)", marginTop: 4,
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                  }}>
+                    {v.channel}
+                  </div>
+                  <div style={{
+                    fontSize: 11, color: "rgba(251, 191, 36, 0.4)", marginTop: 2,
+                    fontFamily: "'Space Grotesk', sans-serif",
+                  }}>
+                    {timeAgo(v.publishedAt)}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 // ─── Main App ───
 export default function App() {
   const [view, setView] = useState("home");
@@ -682,8 +857,9 @@ export default function App() {
             {/* Fun Fact */}
             {!searchQuery && <RandomFunFact />}
 
-            {/* Hot News */}
+            {/* Hot Content + Latest Buzz */}
             {!searchQuery && <HotContent />}
+            {!searchQuery && <LatestBuzz />}
 
             {/* Albums */}
             {!searchQuery && ALBUMS.map(album => (
