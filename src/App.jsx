@@ -581,29 +581,27 @@ function HotContent() {
   );
 }
 
-// ─── Latest Buzz (YouTube search across all channels) ───
+// ─── Latest Buzz (single latest from official channels) ───
 function LatestBuzz() {
-  const [videos, setVideos] = useState([]);
+  const [video, setVideo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeVideo, setActiveVideo] = useState(null);
-  const [updatedAt, setUpdatedAt] = useState(null);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    const fetchVideo = async () => {
       try {
         const res = await fetch("/api/youtube");
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
-        setVideos(data.videos || []);
-        setUpdatedAt(data.updatedAt);
+        setVideo(data.video || null);
       } catch (e) {
-        setError("couldn't load latest buzz right now");
+        setError(true);
       } finally {
         setLoading(false);
       }
     };
-    fetchVideos();
+    fetchVideo();
   }, []);
 
   const timeAgo = (dateStr) => {
@@ -615,142 +613,196 @@ function LatestBuzz() {
     const days = Math.floor(hrs / 24);
     if (days < 7) return `${days}d ago`;
     const weeks = Math.floor(days / 7);
-    return `${weeks}w ago`;
+    if (weeks < 4) return `${weeks}w ago`;
+    return new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric" });
   };
 
-  if (error) return null; // silently hide if API fails
+  const badgeColors = {
+    OFFICIAL: { bg: "rgba(255, 107, 107, 0.15)", text: "#FF6B6B", border: "rgba(255, 107, 107, 0.25)" },
+    LABEL: { bg: "rgba(192, 132, 252, 0.15)", text: "#C084FC", border: "rgba(192, 132, 252, 0.25)" },
+    MEDIA: { bg: "rgba(96, 165, 250, 0.15)", text: "#60A5FA", border: "rgba(96, 165, 250, 0.25)" },
+  };
+
+  if (error || (!loading && !video)) return null;
 
   return (
     <div style={{ marginBottom: 28 }}>
+      {/* Section header */}
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
         <div style={{
           width: 5, height: 28, borderRadius: 3,
-          background: "linear-gradient(180deg, #FBBF24, #FBBF2444)",
+          background: "linear-gradient(180deg, #F9A8D4, #F9A8D444)",
         }} />
-        <div style={{ flex: 1 }}>
+        <div>
           <div style={{
-            fontSize: 14, fontWeight: 700, color: "rgba(251, 191, 36, 0.7)",
+            fontSize: 14, fontWeight: 700, color: "rgba(249, 168, 212, 0.7)",
             letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
           }}>
-            📡 LATEST BUZZ
+            ✨ LATEST BUZZ
           </div>
           <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
-            fresh LNGSHOT content from across YouTube
+            freshest drop from the official fam~
           </div>
         </div>
-        {updatedAt && (
-          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.15)", fontFamily: "'Space Grotesk', sans-serif" }}>
-            updated {timeAgo(updatedAt)}
-          </div>
-        )}
       </div>
 
       {loading ? (
         <div style={{
-          display: "flex", flexDirection: "column", alignItems: "center",
-          padding: "30px 0", gap: 10,
+          background: "rgba(249, 168, 212, 0.04)",
+          border: "1px solid rgba(249, 168, 212, 0.1)",
+          borderRadius: 18, padding: "32px 20px",
+          display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
         }}>
           <div style={{
-            width: 24, height: 24, border: "3px solid rgba(251, 191, 36, 0.15)",
-            borderTopColor: "#FBBF24", borderRadius: "50%",
+            width: 22, height: 22, border: "2.5px solid rgba(249, 168, 212, 0.15)",
+            borderTopColor: "#F9A8D4", borderRadius: "50%",
             animation: "spin 0.8s linear infinite",
           }} />
           <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", fontFamily: "'Space Grotesk', sans-serif" }}>
-            scanning YouTube...
+            checking for new content~ ♡
           </div>
         </div>
       ) : (
-        <>
-          {/* Inline player */}
-          {activeVideo && (
-            <div style={{
-              borderRadius: 14, overflow: "hidden", marginBottom: 12,
-              border: "1px solid rgba(251, 191, 36, 0.15)",
-              aspectRatio: "16/9",
-            }}>
+        <div style={{
+          background: "linear-gradient(135deg, rgba(249, 168, 212, 0.06), rgba(192, 132, 252, 0.04))",
+          border: "1px solid rgba(249, 168, 212, 0.12)",
+          borderRadius: 18, overflow: "hidden",
+          transition: "all 0.3s ease",
+        }}>
+          {/* Video area */}
+          <div
+            style={{ position: "relative", aspectRatio: "16/9", cursor: "pointer", overflow: "hidden" }}
+            onClick={() => setPlaying(true)}
+          >
+            {playing ? (
               <iframe
-                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0`}
+                src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`}
                 style={{ width: "100%", height: "100%", border: "none" }}
                 allow="autoplay; encrypted-media"
                 allowFullScreen
               />
-            </div>
-          )}
+            ) : (
+              <>
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+                {/* Gradient overlay */}
+                <div style={{
+                  position: "absolute", inset: 0,
+                  background: "linear-gradient(0deg, rgba(0,0,0,0.5) 0%, transparent 50%, transparent 100%)",
+                }} />
+                {/* Play button */}
+                <div style={{
+                  position: "absolute", inset: 0,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  <div style={{
+                    width: 56, height: 56, borderRadius: "50%",
+                    background: "rgba(255,255,255,0.92)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+                    transition: "transform 0.2s",
+                  }}>
+                    <span style={{ fontSize: 20, marginLeft: 3, color: "#111" }}>▶</span>
+                  </div>
+                </div>
+                {/* NEW badge */}
+                <div style={{
+                  position: "absolute", top: 12, left: 12,
+                  background: "linear-gradient(135deg, #FF6B6B, #F9A8D4)",
+                  color: "#fff", fontSize: 10, fontWeight: 800,
+                  padding: "3px 10px", borderRadius: 20, letterSpacing: 1.5,
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  boxShadow: "0 2px 8px rgba(255, 107, 107, 0.3)",
+                }}>
+                  NEW ♡
+                </div>
+                {/* Time badge */}
+                <div style={{
+                  position: "absolute", top: 12, right: 12,
+                  background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)",
+                  color: "rgba(255,255,255,0.8)", fontSize: 11, fontWeight: 600,
+                  padding: "3px 8px", borderRadius: 8,
+                  fontFamily: "'Space Grotesk', sans-serif",
+                }}>
+                  {timeAgo(video.publishedAt)}
+                </div>
+              </>
+            )}
+          </div>
 
-          {/* Video list */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {videos.map((v) => (
-              <div
-                key={v.id}
-                onClick={() => setActiveVideo(v.id)}
+          {/* Info section */}
+          <div style={{ padding: "14px 16px 16px" }}>
+            {/* Channel badge + name */}
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+              {video.badge && (() => {
+                const colors = badgeColors[video.badge] || badgeColors.OFFICIAL;
+                return (
+                  <span style={{
+                    fontSize: 9, fontWeight: 700, letterSpacing: 1,
+                    color: colors.text, background: colors.bg,
+                    border: `1px solid ${colors.border}`,
+                    padding: "2px 7px", borderRadius: 6,
+                    fontFamily: "'Space Grotesk', sans-serif",
+                  }}>
+                    {video.badge}
+                  </span>
+                );
+              })()}
+              <span style={{
+                fontSize: 12, color: "rgba(255,255,255,0.4)",
+                fontFamily: "'Space Grotesk', sans-serif", fontWeight: 500,
+              }}>
+                {video.channel}
+              </span>
+            </div>
+
+            {/* Title */}
+            <div style={{
+              fontSize: 15, fontWeight: 700, color: "rgba(255,255,255,0.85)",
+              fontFamily: "'Space Grotesk', sans-serif",
+              lineHeight: 1.4, marginBottom: 10,
+              overflow: "hidden", textOverflow: "ellipsis",
+              display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
+            }}>
+              {video.title}
+            </div>
+
+            {/* Fan reaction bar */}
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "8px 12px", borderRadius: 10,
+              background: "rgba(249, 168, 212, 0.06)",
+              border: "1px solid rgba(249, 168, 212, 0.08)",
+            }}>
+              <div style={{
+                fontSize: 12, color: "rgba(249, 168, 212, 0.6)",
+                fontFamily: "'Space Grotesk', sans-serif", fontStyle: "italic",
+              }}>
+                omg new content!! go watch 4shoboiz~ 💗
+              </div>
+              <a
+                href={`https://www.youtube.com/watch?v=${video.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 style={{
-                  display: "flex", gap: 12, padding: "10px 12px",
-                  borderRadius: 12, cursor: "pointer",
-                  background: activeVideo === v.id
-                    ? "rgba(251, 191, 36, 0.08)"
-                    : "rgba(255,255,255,0.03)",
-                  border: activeVideo === v.id
-                    ? "1px solid rgba(251, 191, 36, 0.2)"
-                    : "1px solid rgba(255,255,255,0.05)",
-                  transition: "all 0.2s ease",
-                  alignItems: "center",
+                  fontSize: 11, fontWeight: 600, color: "#F9A8D4",
+                  textDecoration: "none", fontFamily: "'Space Grotesk', sans-serif",
+                  padding: "4px 10px", borderRadius: 8,
+                  background: "rgba(249, 168, 212, 0.1)",
+                  border: "1px solid rgba(249, 168, 212, 0.15)",
+                  whiteSpace: "nowrap",
+                  transition: "all 0.2s",
                 }}
               >
-                {/* Thumbnail */}
-                <div style={{
-                  position: "relative", flexShrink: 0,
-                  width: 110, borderRadius: 8, overflow: "hidden",
-                  aspectRatio: "16/9",
-                }}>
-                  <img
-                    src={v.thumbnail}
-                    alt={v.title}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                  />
-                  <div style={{
-                    position: "absolute", inset: 0,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    background: "rgba(0,0,0,0.2)",
-                  }}>
-                    <div style={{
-                      width: 26, height: 26, borderRadius: "50%",
-                      background: "rgba(255,255,255,0.85)",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                    }}>
-                      <span style={{ fontSize: 10, marginLeft: 1, color: "#111" }}>▶</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Info */}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{
-                    fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.8)",
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    overflow: "hidden", textOverflow: "ellipsis",
-                    display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
-                    lineHeight: 1.4,
-                  }}>
-                    {v.title}
-                  </div>
-                  <div style={{
-                    fontSize: 12, color: "rgba(255,255,255,0.3)", marginTop: 4,
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-                  }}>
-                    {v.channel}
-                  </div>
-                  <div style={{
-                    fontSize: 11, color: "rgba(251, 191, 36, 0.4)", marginTop: 2,
-                    fontFamily: "'Space Grotesk', sans-serif",
-                  }}>
-                    {timeAgo(v.publishedAt)}
-                  </div>
-                </div>
-              </div>
-            ))}
+                watch on YT →
+              </a>
+            </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
