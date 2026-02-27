@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // ─── Song Data with fan notes ───
 const ALBUMS = [
@@ -453,6 +453,134 @@ function SongDetail({ song, album, onBack }) {
   );
 }
 
+// ─── Hot Content (YouTube MVs) ───
+const HOT_VIDEOS = [
+  { id: "8w6M-RVj1z0", title: "Backseat", tag: "LATEST MV", color: "#FF6B6B" },
+  { id: "HJgdT15UT4k", title: "Moonwalkin'", tag: "DEBUT MV", color: "#C084FC" },
+  { id: "V5tRwughjgU", title: "FaceTime", tag: "FAN FAVORITE", color: "#60A5FA" },
+  { id: "GFRu5ea_klk", title: "Saucin'", tag: "PRE-DEBUT", color: "#34D399" },
+];
+
+function HotContent() {
+  const [activeVideo, setActiveVideo] = useState(null);
+
+  return (
+    <div style={{ marginBottom: 28 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+        <div style={{
+          width: 5, height: 28, borderRadius: 3,
+          background: "linear-gradient(180deg, #FF0000, #FF000044)",
+        }} />
+        <div>
+          <div style={{
+            fontSize: 13, fontWeight: 700, color: "rgba(255, 60, 60, 0.7)",
+            letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
+          }}>
+            🔥 HOT CONTENT
+          </div>
+          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
+            official MVs · tap to watch
+          </div>
+        </div>
+      </div>
+
+      {/* Featured video player */}
+      {activeVideo && (
+        <div style={{
+          borderRadius: 16, overflow: "hidden", marginBottom: 12,
+          border: "1px solid rgba(255,255,255,0.08)",
+          aspectRatio: "16/9",
+        }}>
+          <iframe
+            src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0`}
+            style={{ width: "100%", height: "100%", border: "none" }}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
+        </div>
+      )}
+
+      {/* Video grid */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+        {HOT_VIDEOS.map((v) => (
+          <div
+            key={v.id}
+            onClick={() => setActiveVideo(v.id)}
+            style={{
+              position: "relative", borderRadius: 14, overflow: "hidden",
+              cursor: "pointer", transition: "all 0.25s ease",
+              border: activeVideo === v.id
+                ? `1.5px solid ${v.color}66`
+                : "1.5px solid rgba(255,255,255,0.06)",
+              background: activeVideo === v.id
+                ? `${v.color}11`
+                : "rgba(255,255,255,0.03)",
+            }}
+          >
+            <div style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
+              <img
+                src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`}
+                alt={v.title}
+                style={{
+                  width: "100%", height: "100%", objectFit: "cover",
+                  display: "block", opacity: 0.85, transition: "opacity 0.2s",
+                }}
+              />
+              {/* Play overlay */}
+              <div style={{
+                position: "absolute", inset: 0,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                background: "rgba(0,0,0,0.25)",
+              }}>
+                <div style={{
+                  width: 36, height: 36, borderRadius: "50%",
+                  background: "rgba(255,255,255,0.9)", display: "flex",
+                  alignItems: "center", justifyContent: "center",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                }}>
+                  <span style={{ fontSize: 14, marginLeft: 2, color: "#111" }}>▶</span>
+                </div>
+              </div>
+              {/* Tag badge */}
+              <div style={{
+                position: "absolute", top: 6, left: 6,
+                fontSize: 9, fontWeight: 700, letterSpacing: 1,
+                color: "#fff", background: `${v.color}CC`,
+                padding: "2px 7px", borderRadius: 6,
+                fontFamily: "'Space Grotesk', sans-serif",
+              }}>
+                {v.tag}
+              </div>
+            </div>
+            <div style={{
+              padding: "8px 10px",
+              fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.75)",
+              fontFamily: "'Space Grotesk', sans-serif",
+            }}>
+              {v.title}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <a
+        href="https://www.youtube.com/@LNGSHOT4SHO"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: "flex", alignItems: "center", justifyContent: "center",
+          gap: 6, marginTop: 12, padding: "8px 0",
+          fontSize: 13, color: "rgba(255, 60, 60, 0.5)",
+          textDecoration: "none", fontFamily: "'Space Grotesk', sans-serif",
+          fontWeight: 500, transition: "color 0.2s",
+        }}
+      >
+        <span style={{ fontSize: 14 }}>▶</span> more videos on YouTube →
+      </a>
+    </div>
+  );
+}
+
 // ─── Main App ───
 export default function App() {
   const [view, setView] = useState("home");
@@ -479,6 +607,7 @@ export default function App() {
         @keyframes slideIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes spin { to { transform: rotate(360deg); } }
         input::placeholder { color: rgba(255,255,255,0.3); }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -552,6 +681,9 @@ export default function App() {
 
             {/* Fun Fact */}
             {!searchQuery && <RandomFunFact />}
+
+            {/* Hot News */}
+            {!searchQuery && <HotContent />}
 
             {/* Albums */}
             {!searchQuery && ALBUMS.map(album => (
