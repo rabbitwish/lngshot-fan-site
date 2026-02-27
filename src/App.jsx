@@ -473,12 +473,12 @@ function HotContent() {
         }} />
         <div>
           <div style={{
-            fontSize: 13, fontWeight: 700, color: "rgba(255, 60, 60, 0.7)",
+            fontSize: 14, fontWeight: 700, color: "rgba(255, 60, 60, 0.7)",
             letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
           }}>
             🔥 HOT CONTENT
           </div>
-          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
             official MVs · tap to watch
           </div>
         </div>
@@ -543,8 +543,8 @@ function HotContent() {
               </div>
               {/* Tag badge */}
               <div style={{
-                position: "absolute", top: 6, left: 6,
-                fontSize: 9, fontWeight: 700, letterSpacing: 1,
+                position: "absolute", top: 8, left: 8,
+                fontSize: 10, fontWeight: 700, letterSpacing: 1,
                 color: "#fff", background: `${v.color}CC`,
                 padding: "2px 7px", borderRadius: 6,
                 fontFamily: "'Space Grotesk', sans-serif",
@@ -553,8 +553,8 @@ function HotContent() {
               </div>
             </div>
             <div style={{
-              padding: "8px 10px",
-              fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.75)",
+              padding: "9px 12px",
+              fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.75)",
               fontFamily: "'Space Grotesk', sans-serif",
             }}>
               {v.title}
@@ -570,7 +570,7 @@ function HotContent() {
         style={{
           display: "flex", alignItems: "center", justifyContent: "center",
           gap: 6, marginTop: 12, padding: "8px 0",
-          fontSize: 13, color: "rgba(255, 60, 60, 0.5)",
+          fontSize: 14, color: "rgba(255, 60, 60, 0.5)",
           textDecoration: "none", fontFamily: "'Space Grotesk', sans-serif",
           fontWeight: 500, transition: "color 0.2s",
         }}
@@ -616,25 +616,25 @@ export default function App() {
 
       <FloatingNotes />
 
-      <div style={{ maxWidth: 520, margin: "0 auto", padding: "0 20px", position: "relative", zIndex: 1, paddingBottom: 40 }}>
+      <div style={{ maxWidth: 580, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1, paddingBottom: 40 }}>
         {/* Header */}
         <header style={{ textAlign: "center", paddingTop: 40, paddingBottom: 10, animation: "fadeIn 0.5s ease" }}>
-          <div style={{ fontSize: 15, color: "rgba(255, 182, 193, 0.5)", marginBottom: 8, fontStyle: "italic", letterSpacing: 0.5 }}>~ a fan page by a 4shoboiz ~</div>
-          <div style={{ display: "inline-block", marginBottom: 6, background: "linear-gradient(135deg, #FF6B35, #E74C3C, #9B59B6, #3498DB)", backgroundSize: "300% 300%", animation: "gradientShift 4s ease infinite", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 44, fontWeight: 800, letterSpacing: -2, lineHeight: 1.1, fontFamily: "'Space Grotesk', sans-serif" }}>
+          <div style={{ fontSize: 16, color: "rgba(255, 182, 193, 0.5)", marginBottom: 8, fontStyle: "italic", letterSpacing: 0.5 }}>~ a fan page by a 4shoboiz ~</div>
+          <div style={{ display: "inline-block", marginBottom: 6, background: "linear-gradient(135deg, #FF6B35, #E74C3C, #9B59B6, #3498DB)", backgroundSize: "300% 300%", animation: "gradientShift 4s ease infinite", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 48, fontWeight: 800, letterSpacing: -2, lineHeight: 1.1, fontFamily: "'Space Grotesk', sans-serif" }}>
             LNGSHOT
           </div>
-          <div style={{ fontSize: 14, color: "rgba(255,255,255,0.35)", letterSpacing: 2, fontWeight: 500, marginTop: 2 }}>MUSIC & VIBES</div>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.2)", marginTop: 10, letterSpacing: 1 }}>OHYUL · RYUL · WOOJIN · LOUIS</div>
+          <div style={{ fontSize: 15, color: "rgba(255,255,255,0.35)", letterSpacing: 2, fontWeight: 500, marginTop: 2 }}>MUSIC & VIBES</div>
+          <div style={{ fontSize: 14, color: "rgba(255,255,255,0.2)", marginTop: 10, letterSpacing: 1 }}>OHYUL · RYUL · WOOJIN · LOUIS</div>
           <div style={{ width: 40, height: 3, borderRadius: 2, background: "linear-gradient(90deg, #FF6B35, #9B59B6)", margin: "12px auto 0" }} />
         </header>
 
         {/* Welcome message */}
         {view === "home" && !searchQuery && (
           <div style={{ textAlign: "center", padding: "12px 0 20px", animation: "fadeIn 0.6s ease" }}>
-            <div style={{ fontSize: 15, color: "rgba(255,255,255,0.4)", lineHeight: 1.8, fontFamily: "'Space Grotesk', sans-serif" }}>
+            <div style={{ fontSize: 16, color: "rgba(255,255,255,0.4)", lineHeight: 1.8, fontFamily: "'Space Grotesk', sans-serif" }}>
               hi! welcome to my little corner of the internet dedicated to lngshot 🤍
               <br />
-              <span style={{ fontSize: 13, color: "rgba(255,255,255,0.25)" }}>listen to their music, read my thoughts, and fall in love with them like i did</span>
+              <span style={{ fontSize: 14, color: "rgba(255,255,255,0.25)" }}>listen to their music, read my thoughts, and fall in love with them like i did</span>
             </div>
           </div>
         )}
@@ -646,7 +646,7 @@ export default function App() {
             {/* Search */}
             <div style={{ position: "relative", marginBottom: 20 }}>
               <input type="text" placeholder="search songs, members, vibes..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
-                style={{ width: "100%", padding: "14px 20px 14px 44px", borderRadius: 14, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.06)", color: "#fff", fontSize: 14, outline: "none", fontFamily: "'Space Grotesk', sans-serif", transition: "border-color 0.2s" }}
+                style={{ width: "100%", padding: "15px 20px 15px 46px", borderRadius: 14, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.06)", color: "#fff", fontSize: 15, outline: "none", fontFamily: "'Space Grotesk', sans-serif", transition: "border-color 0.2s" }}
                 onFocus={e => e.target.style.borderColor = "rgba(255,255,255,0.25)"} onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.1)"} />
               <span style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", fontSize: 16, opacity: 0.4 }}>🔍</span>
               {searchQuery && <button onClick={() => setSearchQuery("")} style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.15)", border: "none", color: "#fff", width: 22, height: 22, borderRadius: "50%", cursor: "pointer", fontSize: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>}
@@ -665,7 +665,7 @@ export default function App() {
             {/* Members */}
             {!searchQuery && (
               <div style={{ marginBottom: 24 }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: "rgba(255, 182, 193, 0.5)", letterSpacing: 2, marginBottom: 10, fontFamily: "'Space Grotesk', sans-serif" }}>THE BOYS</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "rgba(255, 182, 193, 0.5)", letterSpacing: 2, marginBottom: 12, fontFamily: "'Space Grotesk', sans-serif" }}>THE BOYS</div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                   {MEMBERS.map(m => (
                     <div key={m.name} onClick={() => setSearchQuery(m.name.charAt(0) + m.name.slice(1).toLowerCase())} style={{ background: `${m.color}18`, border: `1px solid ${m.color}33`, borderRadius: 14, padding: "16px 14px", textAlign: "center", cursor: "pointer", transition: "all 0.2s" }}>
@@ -714,10 +714,10 @@ export default function App() {
 
             {/* Follow */}
             {!searchQuery && (
-              <div style={{ background: "rgba(255,255,255,0.04)", borderRadius: 16, padding: "20px", border: "1px solid rgba(255,255,255,0.06)", marginBottom: 24, textAlign: "center" }}>
-                <div style={{ fontSize: 15, fontWeight: 700, color: "rgba(255,255,255,0.5)", marginBottom: 6, fontFamily: "'Space Grotesk', sans-serif" }}>go follow them!! seriously!!</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginBottom: 14, fontStyle: "italic" }}>they deserve the world and also your spotify streams</div>
-                <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
+              <div style={{ background: "rgba(255,255,255,0.04)", borderRadius: 16, padding: "24px", border: "1px solid rgba(255,255,255,0.06)", marginBottom: 24, textAlign: "center" }}>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "rgba(255,255,255,0.5)", marginBottom: 8, fontFamily: "'Space Grotesk', sans-serif" }}>go follow them!! seriously!!</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.25)", marginBottom: 16, fontStyle: "italic" }}>they deserve the world and also your spotify streams</div>
+                <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
                   <LinkButton href="https://open.spotify.com/artist/2F4oTJOWkcD1JaTeKEa9h6?si=lHyAu2thR_C47o5uBJnk2Q" icon={<SpotifyIcon />} label="Spotify" color="rgba(29, 185, 84, 0.2)" />
                   <LinkButton href="https://www.youtube.com/@LNGSHOT4SHO" icon={<span style={{ fontSize: 13 }}>▶</span>} label="YouTube" color="rgba(255, 0, 0, 0.15)" />
                   <LinkButton href="https://www.instagram.com/lngshot4sho/" icon={<span style={{ fontSize: 13 }}>📸</span>} label="Instagram" color="rgba(225, 48, 108, 0.15)" />
@@ -728,8 +728,8 @@ export default function App() {
             )}
 
             {/* Footer */}
-            <footer style={{ textAlign: "center", padding: "20px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.2)", lineHeight: 2 }}>
+            <footer style={{ textAlign: "center", padding: "24px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+              <div style={{ fontSize: 14, color: "rgba(255,255,255,0.2)", lineHeight: 2 }}>
                 made with so much 🤍 by a proud 4shoboiz
                 <br />
                 LNGSHOT · MORE VISION · Est. 2025
