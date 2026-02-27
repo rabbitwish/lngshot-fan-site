@@ -2,6 +2,13 @@
 // Searches multiple official/trusted channels, returns the single latest video
 // Caches results for 6 hours to save API quota
 
+// Decode HTML entities from YouTube API (e.g. &#39; → ')
+function decodeHtml(str) {
+  if (!str) return str;
+  const entities = { "&#39;": "'", "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#x27;": "'", "&#x2F;": "/" };
+  return str.replace(/&#?\w+;/g, (match) => entities[match] || match);
+}
+
 let cache = { data: null, timestamp: 0 };
 const CACHE_DURATION = 6 * 60 * 60 * 1000; // 6 hours
 
@@ -45,8 +52,8 @@ export default async function handler(req, res) {
       const data = await resp.json();
       return (data.items || []).map((item) => ({
         id: item.id.videoId,
-        title: item.snippet.title,
-        channel: item.snippet.channelTitle,
+        title: decodeHtml(item.snippet.title),
+        channel: decodeHtml(item.snippet.channelTitle),
         channelId: item.snippet.channelId,
         badge: ch.badge,
         thumbnail:
