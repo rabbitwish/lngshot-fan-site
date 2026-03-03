@@ -179,6 +179,7 @@ const MEMBERS = [
     role: "Leader · Lead Vocal",
     color: "#FF6B35",
     emoji: "🎤",
+    photocardImage: "/images/photocards/chibi-ohyul.png",
     note: "our leader!! his voice is so warm",
     musicTaste: "070 Shake fan, alternative R&B with experimental edges. former KOZ trainee, plays guitar, can beatbox. co-wrote Jay Park's \"Remedy\" with Louis",
     favoriteSongs: [
@@ -192,6 +193,7 @@ const MEMBERS = [
     role: "Main Rapper",
     color: "#E74C3C",
     emoji: "🔥",
+    photocardImage: "/images/photocards/chibi-ryul.png",
     note: "flow king. trust the process",
     musicTaste: "hip-hop focused, appeared on RAP:PUBLIC survival show. Jay Park said he was \"already a strong rapper at a young age.\" from Busan",
     favoriteSongs: [
@@ -203,6 +205,7 @@ const MEMBERS = [
     role: "Dancer · Composer",
     color: "#9B59B6",
     emoji: "💫",
+    photocardImage: "/images/photocards/chibi-woojin.png",
     note: "writes, dances, sings... is there anything he can't do??",
     musicTaste: "deep R&B and hip-hop appreciation. former BigHit trainee (6 years). his daily routine includes searching for new songs. attends Hanlim Arts High School for Practical Dance",
     favoriteSongs: [
@@ -215,6 +218,7 @@ const MEMBERS = [
     role: "Main Vocal · Maknae",
     color: "#3498DB",
     emoji: "🌟",
+    photocardImage: "/images/photocards/chibi-louis.png",
     note: "baby of the group but his vocals are NO joke",
     musicTaste: "huge Justin Bieber fan (nicknamed \"Baby Justin Bieber\"). French-Korean, speaks 4 languages. featured on JD McCrary's \"Lullaby Remix\" with Jay Park. co-wrote Jay Park's \"Remedy\" with Ohyul",
     favoriteSongs: [
@@ -923,6 +927,143 @@ function FavSongCard({ song, color, index }) {
   );
 }
 
+// ─── Detail Photocard (flippable) ───
+function DetailPhotoCard({ member }) {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <div style={{ textAlign: "center", marginBottom: 24 }}>
+      <div
+        onClick={() => setFlipped(!flipped)}
+        style={{
+          width: 200, height: 310, margin: "0 auto 12px",
+          perspective: 1000, cursor: "pointer",
+        }}
+      >
+        <div style={{
+          width: "100%", height: "100%", position: "relative",
+          transformStyle: "preserve-3d",
+          transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+          transform: flipped ? "rotateY(180deg)" : "none",
+        }}>
+          {/* ── Front ── */}
+          <div style={{
+            position: "absolute", width: "100%", height: "100%",
+            backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
+            borderRadius: 18,
+            background: `linear-gradient(170deg, ${member.color}30 0%, rgba(10,10,25,0.95) 45%, ${member.color}20 100%)`,
+            border: `2px solid ${member.color}44`,
+            boxShadow: `0 12px 40px ${member.color}22, inset 0 1px 0 ${member.color}33`,
+            overflow: "hidden",
+            padding: "22px 16px 18px",
+            display: "flex", flexDirection: "column", alignItems: "center",
+          }}>
+            {/* Shimmer sweep */}
+            <div style={{
+              position: "absolute", inset: 0, pointerEvents: "none",
+              background: `linear-gradient(135deg, transparent 25%, ${member.color}12 42%, rgba(255,255,255,0.1) 50%, ${member.color}12 58%, transparent 75%)`,
+              backgroundSize: "200% 200%",
+              animation: "shimmer 4s ease-in-out infinite",
+              zIndex: 1,
+            }} />
+            {/* Corner sparkles */}
+            <div style={{ position: "absolute", top: 10, left: 10, width: 4, height: 4, borderRadius: "50%", background: member.color, opacity: 0.35, animation: "sparkle 3s ease-in-out infinite" }} />
+            <div style={{ position: "absolute", top: 10, right: 10, width: 4, height: 4, borderRadius: "50%", background: member.color, opacity: 0.35, animation: "sparkle 3s ease-in-out infinite 1s" }} />
+            <div style={{ position: "absolute", bottom: 14, left: 14, width: 3, height: 3, borderRadius: "50%", background: "#fff", opacity: 0.15, animation: "sparkle 3.5s ease-in-out infinite 0.5s" }} />
+            {/* Top accent line */}
+            <div style={{ width: "60%", height: 1.5, borderRadius: 1, background: `linear-gradient(90deg, transparent, ${member.color}55, transparent)`, marginBottom: 16, position: "relative", zIndex: 2 }} />
+            {/* Member image */}
+            <div style={{
+              width: 110, height: 110, borderRadius: 20,
+              border: `2.5px solid ${member.color}55`,
+              overflow: "hidden", marginBottom: 14,
+              boxShadow: `0 6px 24px ${member.color}33`,
+              position: "relative", zIndex: 2,
+            }}>
+              <img src={member.photocardImage} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            </div>
+            {/* Name */}
+            <div style={{ fontSize: 20, fontWeight: 800, color: member.color, fontFamily: "'Space Grotesk', sans-serif", letterSpacing: 1.5, position: "relative", zIndex: 2 }}>
+              {member.name}
+            </div>
+            {/* Role */}
+            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", fontFamily: "'Space Grotesk', sans-serif", marginTop: 4, letterSpacing: 0.5, position: "relative", zIndex: 2 }}>
+              {member.role}
+            </div>
+            {/* Emoji */}
+            <div style={{ fontSize: 16, marginTop: 8, position: "relative", zIndex: 2 }}>
+              {member.emoji}
+            </div>
+            {/* Branding */}
+            <div style={{ marginTop: "auto", fontSize: 9, fontWeight: 700, color: "rgba(255,255,255,0.15)", letterSpacing: 4, fontFamily: "'Space Grotesk', sans-serif", position: "relative", zIndex: 2 }}>
+              LNGSHOT
+            </div>
+            <div style={{ width: "40%", height: 1, borderRadius: 1, background: `linear-gradient(90deg, transparent, ${member.color}33, transparent)`, marginTop: 8 }} />
+          </div>
+
+          {/* ── Back ── */}
+          <div style={{
+            position: "absolute", width: "100%", height: "100%",
+            backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+            borderRadius: 18,
+            background: `linear-gradient(170deg, ${member.color}35 0%, ${member.color}10 40%, rgba(10,10,25,0.98) 100%)`,
+            border: `2px solid ${member.color}44`,
+            boxShadow: `0 12px 40px ${member.color}22`,
+            overflow: "hidden",
+            padding: "28px 20px 20px",
+            display: "flex", flexDirection: "column", alignItems: "center",
+            justifyContent: "center",
+          }}>
+            {/* Pattern bg */}
+            <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.04, fontSize: 18, lineHeight: 1.6, overflow: "hidden", color: member.color, padding: 8, wordBreak: "break-all" }}>
+              {"♡ ★ ♪ ✦ ".repeat(40)}
+            </div>
+            {/* Emoji */}
+            <div style={{ fontSize: 32, marginBottom: 12, filter: `drop-shadow(0 0 10px ${member.color}44)`, position: "relative", zIndex: 1 }}>
+              {member.emoji}
+            </div>
+            {/* Fan quote */}
+            <div style={{
+              fontSize: 15, color: "rgba(255,255,255,0.6)",
+              textAlign: "center", lineHeight: 1.8, fontStyle: "italic",
+              fontFamily: "'Noto Sans KR', sans-serif",
+              position: "relative", zIndex: 1,
+            }}>
+              "{member.note}"
+            </div>
+            {/* Music taste snippet */}
+            {member.musicTaste && (
+              <div style={{
+                fontSize: 12, color: "rgba(255,255,255,0.3)",
+                textAlign: "center", lineHeight: 1.6, marginTop: 14,
+                fontFamily: "'Space Grotesk', sans-serif",
+                position: "relative", zIndex: 1,
+              }}>
+                {member.musicTaste.split(".")[0]}
+              </div>
+            )}
+            {/* Divider */}
+            <div style={{ width: 40, height: 2, borderRadius: 1, background: `${member.color}55`, marginTop: 18, marginBottom: 12 }} />
+            {/* Branding */}
+            <div style={{ fontSize: 12, fontWeight: 800, color: `${member.color}77`, letterSpacing: 5, fontFamily: "'Space Grotesk', sans-serif" }}>
+              LNGSHOT
+            </div>
+            {/* Hint */}
+            <div style={{ fontSize: 10, color: "rgba(255,255,255,0.15)", marginTop: 10, fontFamily: "'Space Grotesk', sans-serif" }}>
+              tap to flip back
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Tap hint below card */}
+      <div style={{ fontSize: 12, color: "rgba(255,255,255,0.18)", fontFamily: "'Space Grotesk', sans-serif" }}>
+        tap card to flip
+      </div>
+    </div>
+  );
+}
+
 // ─── Member Detail View ───
 function MemberDetail({ member, allSongs, onBack, onSongClick }) {
   // Find songs this member is featured on or contributed to
@@ -949,33 +1090,8 @@ function MemberDetail({ member, allSongs, onBack, onSongClick }) {
         <BackIcon /> Back
       </button>
 
-      {/* Member Header */}
-      <div style={{ textAlign: "center", marginBottom: 24 }}>
-        <div style={{
-          width: 80, height: 80, borderRadius: 24,
-          background: `linear-gradient(135deg, ${member.color}, ${member.color}66)`,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: 40, margin: "0 auto 12px",
-          boxShadow: `0 8px 30px ${member.color}33`,
-        }}>
-          {member.emoji}
-        </div>
-        <h2 style={{
-          margin: 0, fontSize: 32, fontWeight: 800, color: member.color,
-          fontFamily: "'Space Grotesk', sans-serif", letterSpacing: -0.5,
-        }}>
-          {member.name}
-        </h2>
-        <div style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", marginTop: 4 }}>
-          {member.role}
-        </div>
-        <div style={{
-          fontSize: 14, color: "rgba(255,255,255,0.3)", marginTop: 8,
-          fontStyle: "italic", lineHeight: 1.6,
-        }}>
-          {member.note}
-        </div>
-      </div>
+      {/* Member Header — Flippable Detail Photocard */}
+      <DetailPhotoCard member={member} />
 
       {/* Music Taste */}
       {member.musicTaste && (
@@ -1087,6 +1203,165 @@ function MemberDetail({ member, allSongs, onBack, onSongClick }) {
   );
 }
 
+// ─── PhotoCard Components ───
+function PhotoCard({ member, onClick }) {
+  const [hover, setHover] = useState(false);
+  const cardRef = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [shimmerPos, setShimmerPos] = useState({ x: 50, y: 50 });
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    setTilt({ x: (y - 0.5) * 10, y: (x - 0.5) * -10 });
+    setShimmerPos({ x: x * 100, y: y * 100 });
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+    setTilt({ x: 0, y: 0 });
+    setShimmerPos({ x: 50, y: 50 });
+  };
+
+  const decorations = member.name === "OHYUL" ? "☀ ♪ ✦"
+    : member.name === "RYUL" ? "♫ ★ ♪"
+    : member.name === "WOOJIN" ? "✦ ♬ ♪"
+    : "☁ ♪ ✧";
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseEnter={() => setHover(true)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onClick={() => onClick && onClick(member)}
+      style={{
+        perspective: 800,
+        cursor: "pointer",
+      }}
+    >
+      <div style={{
+        position: "relative",
+        borderRadius: 14,
+        background: `linear-gradient(160deg, ${member.color}22 0%, rgba(15,15,30,0.95) 50%, ${member.color}15 100%)`,
+        border: `1.5px solid ${member.color}${hover ? "77" : "44"}`,
+        boxShadow: hover
+          ? `0 12px 40px ${member.color}30, 0 0 20px ${member.color}18`
+          : `0 4px 15px rgba(0,0,0,0.25)`,
+        overflow: "hidden",
+        transition: "all 0.3s ease",
+        transform: hover
+          ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(1.03)`
+          : "none",
+        padding: "16px 12px 14px",
+        display: "flex", flexDirection: "column", alignItems: "center",
+        textAlign: "center",
+      }}>
+        {/* Holographic shimmer overlay */}
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: hover
+            ? `radial-gradient(circle at ${shimmerPos.x}% ${shimmerPos.y}%, rgba(255,255,255,0.12) 0%, transparent 50%)`
+            : "none",
+          zIndex: 2,
+        }} />
+        {/* Animated shimmer sweep */}
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: `linear-gradient(135deg, transparent 30%, ${member.color}15 45%, rgba(255,255,255,0.08) 50%, ${member.color}15 55%, transparent 70%)`,
+          backgroundSize: "200% 200%",
+          animation: "shimmer 3s ease-in-out infinite",
+          zIndex: 1,
+        }} />
+
+        {/* Sparkle dots */}
+        <div style={{
+          position: "absolute", top: 10, right: 10,
+          width: 4, height: 4, borderRadius: "50%",
+          background: member.color, opacity: 0.4,
+          animation: "sparkle 2s ease-in-out infinite",
+          zIndex: 3,
+        }} />
+        <div style={{
+          position: "absolute", top: 28, left: 12,
+          width: 3, height: 3, borderRadius: "50%",
+          background: member.color, opacity: 0.3,
+          animation: "sparkle 2.5s ease-in-out infinite 0.5s",
+          zIndex: 3,
+        }} />
+
+        {/* Member image */}
+        <div style={{
+          width: 80, height: 80, borderRadius: "50%",
+          border: `2.5px solid ${member.color}55`,
+          overflow: "hidden", marginBottom: 10,
+          boxShadow: `0 4px 16px ${member.color}28`,
+          position: "relative", zIndex: 3,
+        }}>
+          <img
+            src={member.photocardImage}
+            alt={member.name}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        </div>
+
+        {/* Member name */}
+        <div style={{
+          fontSize: 16, fontWeight: 800, color: member.color,
+          fontFamily: "'Space Grotesk', sans-serif",
+          letterSpacing: 0.5, position: "relative", zIndex: 3,
+        }}>
+          {member.name}
+        </div>
+
+        {/* Role */}
+        <div style={{
+          fontSize: 11, color: "rgba(255,255,255,0.4)",
+          fontFamily: "'Space Grotesk', sans-serif",
+          marginTop: 3, lineHeight: 1.3,
+          position: "relative", zIndex: 3,
+        }}>
+          {member.role}
+        </div>
+
+        {/* Decorations */}
+        <div style={{
+          fontSize: 11, color: `${member.color}66`, marginTop: 8,
+          letterSpacing: 4, position: "relative", zIndex: 3,
+        }}>
+          {decorations}
+        </div>
+
+        {/* Fan note */}
+        <div style={{
+          fontSize: 11, color: "rgba(255,255,255,0.25)", marginTop: 6,
+          fontStyle: "italic", lineHeight: 1.4,
+          position: "relative", zIndex: 3,
+          overflow: "hidden",
+          display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
+        }}>
+          {member.note}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PhotoCardSection({ members, onMemberClick }) {
+  return (
+    <div style={{ marginBottom: 24 }}>
+      <div style={{ fontSize: 14, fontWeight: 700, color: "rgba(255, 182, 193, 0.5)", letterSpacing: 2, marginBottom: 12, fontFamily: "'Space Grotesk', sans-serif" }}>THE BOYS</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+        {members.map((m) => (
+          <PhotoCard key={m.name} member={m} onClick={onMemberClick} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Main App ───
 export default function App() {
   const [view, setView] = useState("home");
@@ -1116,6 +1391,9 @@ export default function App() {
         @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes shimmer { 0% { background-position: 200% 200%; } 50% { background-position: 0% 0%; } 100% { background-position: 200% 200%; } }
+        @keyframes sparkle { 0%, 100% { opacity: 0.2; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.5); } }
+        @keyframes cardFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
         input::placeholder { color: rgba(255,255,255,0.3); }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -1177,22 +1455,8 @@ export default function App() {
               </div>
             )}
 
-            {/* Members */}
-            {!searchQuery && (
-              <div style={{ marginBottom: 24 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "rgba(255, 182, 193, 0.5)", letterSpacing: 2, marginBottom: 12, fontFamily: "'Space Grotesk', sans-serif" }}>THE BOYS</div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-                  {MEMBERS.map(m => (
-                    <div key={m.name} onClick={() => openMember(m)} style={{ background: `${m.color}18`, border: `1px solid ${m.color}33`, borderRadius: 14, padding: "16px 14px", textAlign: "center", cursor: "pointer", transition: "all 0.2s" }}>
-                      <div style={{ fontSize: 26, marginBottom: 6 }}>{m.emoji}</div>
-                      <div style={{ fontSize: 16, fontWeight: 700, color: m.color, fontFamily: "'Space Grotesk', sans-serif" }}>{m.name}</div>
-                      <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 3, lineHeight: 1.3 }}>{m.role}</div>
-                      <div style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 6, fontStyle: "italic", lineHeight: 1.4 }}>{m.note}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* Members — Photocard Collection */}
+            {!searchQuery && <PhotoCardSection members={MEMBERS} onMemberClick={openMember} />}
 
             {/* Fun Fact */}
             {!searchQuery && <RandomFunFact />}
