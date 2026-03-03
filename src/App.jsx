@@ -174,10 +174,54 @@ const ALBUMS = [
 ];
 
 const MEMBERS = [
-  { name: "OHYUL", role: "Leader · Lead Vocal", color: "#FF6B35", emoji: "🎤", note: "our leader!! his voice is so warm" },
-  { name: "RYUL", role: "Main Rapper", color: "#E74C3C", emoji: "🔥", note: "flow king. trust the process" },
-  { name: "WOOJIN", role: "Dancer · Composer", color: "#9B59B6", emoji: "💫", note: "writes, dances, sings... is there anything he can't do??" },
-  { name: "LOUIS", role: "Main Vocal · Maknae", color: "#3498DB", emoji: "🌟", note: "baby of the group but his vocals are NO joke" },
+  {
+    name: "OHYUL",
+    role: "Leader · Lead Vocal",
+    color: "#FF6B35",
+    emoji: "🎤",
+    note: "our leader!! his voice is so warm",
+    musicTaste: "070 Shake fan, alternative R&B with experimental edges. former KOZ trainee, plays guitar, can beatbox. co-wrote Jay Park's \"Remedy\" with Louis",
+    favoriteSongs: [
+      { title: "Neo Surf", artist: "Gener8ion & 070 Shake", spotifyId: "3Kkucw94v1e6yYKIRtnQMN", note: "listed as his fav — the experimental vibes match his style so well", vibe: "experimental · dreamy" },
+      { title: "Guilty Conscience", artist: "070 Shake", spotifyId: "1wMeFMxPOr2vJo8FUJy5ow", note: "another 070 Shake pick! ohyul has taste fr", vibe: "dark · introspective" },
+      { title: "Boyfriend", artist: "Justin Bieber", spotifyId: "1qDrWA6lyx8cLECdZE7TV7", note: "he covered this with ryul and it went VIRAL on tiktok!! 334K+ likes", vibe: "pop · smooth" },
+    ],
+  },
+  {
+    name: "RYUL",
+    role: "Main Rapper",
+    color: "#E74C3C",
+    emoji: "🔥",
+    note: "flow king. trust the process",
+    musicTaste: "hip-hop focused, appeared on RAP:PUBLIC survival show. Jay Park said he was \"already a strong rapper at a young age.\" from Busan",
+    favoriteSongs: [
+      { title: "Ghost", artist: "Jack Harlow", spotifyId: "6I3mqTwhRpn34SLVafSH7G", note: "listed as his favorite — the smooth flow fits ryul's vibe perfectly", vibe: "hip-hop · smooth" },
+    ],
+  },
+  {
+    name: "WOOJIN",
+    role: "Dancer · Composer",
+    color: "#9B59B6",
+    emoji: "💫",
+    note: "writes, dances, sings... is there anything he can't do??",
+    musicTaste: "deep R&B and hip-hop appreciation. former BigHit trainee (6 years). his daily routine includes searching for new songs. attends Hanlim Arts High School for Practical Dance",
+    favoriteSongs: [
+      { title: "Show Me Love", artist: "Ty Dolla $ign", spotifyId: "7w5RTF0vnOi4xZ5oo724id", note: "one of his listed favorites — that smooth R&B sound he loves", vibe: "R&B · smooth" },
+      { title: "Neo Surf", artist: "Gener8ion & 070 Shake", spotifyId: "3Kkucw94v1e6yYKIRtnQMN", note: "shares this pick with ohyul! the experimental vibes hit different", vibe: "experimental · dreamy" },
+    ],
+  },
+  {
+    name: "LOUIS",
+    role: "Main Vocal · Maknae",
+    color: "#3498DB",
+    emoji: "🌟",
+    note: "baby of the group but his vocals are NO joke",
+    musicTaste: "huge Justin Bieber fan (nicknamed \"Baby Justin Bieber\"). French-Korean, speaks 4 languages. featured on JD McCrary's \"Lullaby Remix\" with Jay Park. co-wrote Jay Park's \"Remedy\" with Ohyul",
+    favoriteSongs: [
+      { title: "Feels Like Summer", artist: "Childish Gambino", spotifyId: "7DfFc7a3mCRbEZkwVSmCsR", note: "mentioned as a song he really enjoys — summer vibes for our maknae", vibe: "neo-soul · warm" },
+      { title: "Love", artist: "Keyshia Cole", spotifyId: "1Ib6HkndasBLnFCpQDuaKi", note: "chose this for his MORE VISION audition!! iconic choice", vibe: "R&B · emotional" },
+    ],
+  },
 ];
 
 const FUN_FACTS = [
@@ -808,11 +852,247 @@ function LatestBuzz() {
   );
 }
 
+// ─── Headphones Icon ───
+const HeadphonesIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+  </svg>
+);
+
+// ─── Member Favorite Song Card ───
+function FavSongCard({ song, color, index }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <a
+      href={`https://open.spotify.com/track/${song.spotifyId}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        display: "flex", alignItems: "center", gap: 14,
+        padding: "14px 16px", borderRadius: 14,
+        background: hover
+          ? `linear-gradient(135deg, ${color}28, ${color}12)`
+          : "linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03))",
+        border: `1px solid ${hover ? `${color}44` : "rgba(255,255,255,0.08)"}`,
+        textDecoration: "none", color: "#fff", transition: "all 0.3s ease",
+        transform: hover ? "translateY(-1px)" : "none", cursor: "pointer",
+        animation: `slideIn 0.4s ease forwards`, animationDelay: `${index * 0.08}s`, opacity: 0,
+      }}
+    >
+      {/* Spotify green dot */}
+      <div style={{
+        width: 42, height: 42, borderRadius: 10,
+        background: `linear-gradient(135deg, #1DB95444, #1DB95422)`,
+        border: "1px solid #1DB95433",
+        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+      }}>
+        <SpotifyIcon />
+      </div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{
+          fontSize: 15, fontWeight: 700, color: "#fff",
+          fontFamily: "'Space Grotesk', sans-serif",
+          whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+        }}>
+          {song.title}
+        </div>
+        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>
+          {song.artist}
+        </div>
+        {song.vibe && (
+          <div style={{
+            display: "inline-block", marginTop: 4,
+            fontSize: 11, color: `${color}CC`, fontWeight: 500,
+            fontFamily: "'Space Grotesk', sans-serif",
+          }}>
+            {song.vibe}
+          </div>
+        )}
+      </div>
+      <div style={{
+        width: 32, height: 32, borderRadius: "50%", background: "#1DB954",
+        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+        transition: "transform 0.2s", transform: hover ? "scale(1.1)" : "none",
+      }}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+    </a>
+  );
+}
+
+// ─── Member Detail View ───
+function MemberDetail({ member, allSongs, onBack, onSongClick }) {
+  // Find songs this member is featured on or contributed to
+  const memberSongs = allSongs.filter(s => {
+    const name = member.name.charAt(0) + member.name.slice(1).toLowerCase();
+    return (s.featuring && s.featuring.toLowerCase().includes(name.toLowerCase()))
+      || (s.credits && s.credits.toLowerCase().includes(name.toLowerCase()));
+  });
+
+  return (
+    <div style={{ animation: "fadeIn 0.3s ease" }}>
+      {/* Back button */}
+      <button
+        onClick={onBack}
+        style={{
+          background: "rgba(255,255,255,0.1)", border: "none", color: "#fff",
+          padding: "8px 16px", borderRadius: 20, cursor: "pointer",
+          display: "flex", alignItems: "center", gap: 4, fontSize: 13, marginBottom: 20,
+          fontFamily: "'Space Grotesk', sans-serif", transition: "background 0.2s",
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.2)"}
+        onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}
+      >
+        <BackIcon /> Back
+      </button>
+
+      {/* Member Header */}
+      <div style={{ textAlign: "center", marginBottom: 24 }}>
+        <div style={{
+          width: 80, height: 80, borderRadius: 24,
+          background: `linear-gradient(135deg, ${member.color}, ${member.color}66)`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: 40, margin: "0 auto 12px",
+          boxShadow: `0 8px 30px ${member.color}33`,
+        }}>
+          {member.emoji}
+        </div>
+        <h2 style={{
+          margin: 0, fontSize: 32, fontWeight: 800, color: member.color,
+          fontFamily: "'Space Grotesk', sans-serif", letterSpacing: -0.5,
+        }}>
+          {member.name}
+        </h2>
+        <div style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", marginTop: 4 }}>
+          {member.role}
+        </div>
+        <div style={{
+          fontSize: 14, color: "rgba(255,255,255,0.3)", marginTop: 8,
+          fontStyle: "italic", lineHeight: 1.6,
+        }}>
+          {member.note}
+        </div>
+      </div>
+
+      {/* Music Taste */}
+      {member.musicTaste && (
+        <div style={{
+          background: `${member.color}0A`, border: `1px solid ${member.color}22`,
+          borderRadius: 14, padding: "14px 18px", marginBottom: 24,
+        }}>
+          <div style={{
+            fontSize: 12, fontWeight: 700, color: `${member.color}99`,
+            letterSpacing: 1.5, marginBottom: 8,
+            fontFamily: "'Space Grotesk', sans-serif",
+          }}>
+            MUSIC TASTE
+          </div>
+          <div style={{
+            fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.7,
+            fontFamily: "'Space Grotesk', sans-serif",
+          }}>
+            {member.musicTaste}
+          </div>
+        </div>
+      )}
+
+      {/* Favorite Songs / Playlist Section */}
+      {member.favoriteSongs && member.favoriteSongs.length > 0 && (
+        <div style={{ marginBottom: 28 }}>
+          {/* Section header */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+            <div style={{
+              width: 5, height: 28, borderRadius: 3,
+              background: `linear-gradient(180deg, #1DB954, #1DB95444)`,
+            }} />
+            <div>
+              <div style={{
+                fontSize: 14, fontWeight: 700, color: "rgba(29, 185, 84, 0.7)",
+                letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
+                display: "flex", alignItems: "center", gap: 6,
+              }}>
+                <HeadphonesIcon /> {member.name}'S PLAYLIST
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
+                songs {member.name.toLowerCase()} loves & recommends
+              </div>
+            </div>
+          </div>
+
+          {/* Song cards */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {member.favoriteSongs.map((song, i) => (
+              <div key={song.spotifyId}>
+                <FavSongCard song={song} color={member.color} index={i} />
+                {song.note && (
+                  <div style={{
+                    fontSize: 13, color: "rgba(255,255,255,0.3)", fontStyle: "italic",
+                    padding: "6px 16px 0 58px", lineHeight: 1.5,
+                    fontFamily: "'Space Grotesk', sans-serif",
+                  }}>
+                    <span style={{ color: "rgba(255, 182, 193, 0.5)", marginRight: 4 }}>~</span>
+                    {song.note}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div style={{
+            marginTop: 16, padding: "12px 16px", borderRadius: 12,
+            background: "rgba(29, 185, 84, 0.06)", border: "1px solid rgba(29, 185, 84, 0.15)",
+            display: "flex", alignItems: "center", gap: 8,
+            fontSize: 13, color: "rgba(255,255,255,0.35)",
+            fontFamily: "'Space Grotesk', sans-serif", fontStyle: "italic",
+          }}>
+            <SpotifyIcon />
+            <span>know more songs {member.name.toLowerCase()} likes? we'll add them as we find out more~</span>
+          </div>
+        </div>
+      )}
+
+      {/* Their LNGSHOT Contributions */}
+      {memberSongs.length > 0 && (
+        <div style={{ marginBottom: 28 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+            <div style={{
+              width: 5, height: 28, borderRadius: 3,
+              background: `linear-gradient(180deg, ${member.color}, ${member.color}44)`,
+            }} />
+            <div>
+              <div style={{
+                fontSize: 14, fontWeight: 700, color: `${member.color}BB`,
+                letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
+              }}>
+                LNGSHOT SONGS
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
+                tracks featuring or written by {member.name.toLowerCase()}
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {memberSongs.map((s, i) => (
+              <SongCard key={s.id} song={s} album={s.album} index={i} onClick={() => onSongClick(s, s.album)} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Main App ───
 export default function App() {
   const [view, setView] = useState("home");
   const [selectedSong, setSelectedSong] = useState(null);
   const [selectedAlbum, setSelectedAlbum] = useState(null);
+  const [selectedMember, setSelectedMember] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const allSongs = ALBUMS.flatMap(album => album.songs.map(song => ({ ...song, album })));
@@ -821,6 +1101,7 @@ export default function App() {
     : null;
 
   const openSong = (song, album) => { setSelectedSong(song); setSelectedAlbum(album); setView("song"); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const openMember = (member) => { setSelectedMember(member); setView("member"); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
   return (
     <div style={{ minHeight: "100vh", background: "linear-gradient(160deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%)", color: "#fff", fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif", position: "relative" }}>
@@ -868,6 +1149,13 @@ export default function App() {
 
         {view === "song" && selectedSong ? (
           <SongDetail song={selectedSong} album={selectedAlbum} onBack={() => { setView("home"); setSelectedSong(null); }} />
+        ) : view === "member" && selectedMember ? (
+          <MemberDetail
+            member={selectedMember}
+            allSongs={allSongs}
+            onBack={() => { setView("home"); setSelectedMember(null); }}
+            onSongClick={(song, album) => openSong(song, album)}
+          />
         ) : (
           <div style={{ animation: "fadeIn 0.3s ease" }}>
             {/* Search */}
@@ -895,7 +1183,7 @@ export default function App() {
                 <div style={{ fontSize: 14, fontWeight: 700, color: "rgba(255, 182, 193, 0.5)", letterSpacing: 2, marginBottom: 12, fontFamily: "'Space Grotesk', sans-serif" }}>THE BOYS</div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                   {MEMBERS.map(m => (
-                    <div key={m.name} onClick={() => setSearchQuery(m.name.charAt(0) + m.name.slice(1).toLowerCase())} style={{ background: `${m.color}18`, border: `1px solid ${m.color}33`, borderRadius: 14, padding: "16px 14px", textAlign: "center", cursor: "pointer", transition: "all 0.2s" }}>
+                    <div key={m.name} onClick={() => openMember(m)} style={{ background: `${m.color}18`, border: `1px solid ${m.color}33`, borderRadius: 14, padding: "16px 14px", textAlign: "center", cursor: "pointer", transition: "all 0.2s" }}>
                       <div style={{ fontSize: 26, marginBottom: 6 }}>{m.emoji}</div>
                       <div style={{ fontSize: 16, fontWeight: 700, color: m.color, fontFamily: "'Space Grotesk', sans-serif" }}>{m.name}</div>
                       <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 3, lineHeight: 1.3 }}>{m.role}</div>
