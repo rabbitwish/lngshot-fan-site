@@ -1,0 +1,31 @@
+{
+  "skill_name": "fan-art-generator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create cute fan art for Ohyul from LNGSHOT. He's the leader and lead vocal. His vibe is warm and comforting. Use warm sunset colors.",
+      "expected_output": "A PNG character card illustration in cute hand-drawn style featuring Ohyul's name, his role as Leader/Lead Vocal, warm color palette, decorative elements like music notes and stars",
+      "files": [],
+      "expectations": [
+        "Output is a PNG file",
+        "Image contains the name 'Ohyul'",
+        "Uses warm colors (oranges, yellows, reds)",
+        "Includes decorative elements like stars or music notes",
+        "Has a hand-drawn or sketched aesthetic quality"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Make fan art for Ryul, the main rapper of LNGSHOT. He's known as the flow king. Use cool, bold colors with a fiery vibe.",
+      "expected_output": "A PNG character card illustration in cute hand-drawn style featuring Ryul's name, his role as Main Rapper, bold/fiery color palette, decorative elements",
+      "files": [],
+      "expectations": [
+        "Output is a PNG file",
+        "Image contains the name 'Ryul'",
+        "Uses bold or fiery colors",
+        "Includes decorative elements",
+        "Has a distinct visual personality from other member cards"
+      ]
+    }
+  ]
+}
