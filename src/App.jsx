@@ -937,19 +937,20 @@ function DetailPhotoCard({ member }) {
         onClick={() => setFlipped(!flipped)}
         style={{
           width: 200, height: 310, margin: "0 auto 12px",
-          perspective: 1000, cursor: "pointer",
+          perspective: "1000px", WebkitPerspective: "1000px", cursor: "pointer",
         }}
       >
         <div style={{
           width: "100%", height: "100%", position: "relative",
-          transformStyle: "preserve-3d",
+          transformStyle: "preserve-3d", WebkitTransformStyle: "preserve-3d",
           transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
-          transform: flipped ? "rotateY(180deg)" : "none",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
         }}>
           {/* ── Front ── */}
           <div style={{
             position: "absolute", width: "100%", height: "100%",
             backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(0deg) translateZ(1px)", WebkitTransform: "rotateY(0deg) translateZ(1px)",
             borderRadius: 18,
             background: `linear-gradient(170deg, ${member.color}30 0%, rgba(10,10,25,0.95) 45%, ${member.color}20 100%)`,
             border: `2px solid ${member.color}44`,
@@ -1005,7 +1006,7 @@ function DetailPhotoCard({ member }) {
           <div style={{
             position: "absolute", width: "100%", height: "100%",
             backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
+            transform: "rotateY(180deg) translateZ(0px)", WebkitTransform: "rotateY(180deg) translateZ(0px)",
             borderRadius: 18,
             background: `linear-gradient(170deg, ${member.color}35 0%, ${member.color}10 40%, rgba(10,10,25,0.98) 100%)`,
             border: `2px solid ${member.color}44`,
@@ -1238,7 +1239,7 @@ function PhotoCard({ member, onClick }) {
       onMouseLeave={handleMouseLeave}
       onClick={() => onClick && onClick(member)}
       style={{
-        perspective: 800,
+        perspective: "800px", WebkitPerspective: "800px",
         cursor: "pointer",
       }}
     >
