@@ -182,10 +182,21 @@ const MEMBERS = [
     photocardImage: "/images/photocards/chibi-ohyul.png",
     note: "our leader!! his voice is so warm",
     musicTaste: "070 Shake fan, alternative R&B with experimental edges. former KOZ trainee, plays guitar, can beatbox. co-wrote Jay Park's \"Remedy\" with Louis",
+    playlistUrl: "https://open.spotify.com/playlist/7ftHLy68TXH83Eb0Okiu7o",
+    playlistName: "ohyul's sonic universe",
     favoriteSongs: [
-      { title: "Neo Surf", artist: "Gener8ion & 070 Shake", spotifyId: "3Kkucw94v1e6yYKIRtnQMN", note: "listed as his fav — the experimental vibes match his style so well", vibe: "experimental · dreamy" },
-      { title: "Guilty Conscience", artist: "070 Shake", spotifyId: "1wMeFMxPOr2vJo8FUJy5ow", note: "another 070 Shake pick! ohyul has taste fr", vibe: "dark · introspective" },
-      { title: "Boyfriend", artist: "Justin Bieber", spotifyId: "1qDrWA6lyx8cLECdZE7TV7", note: "he covered this with ryul and it went VIRAL on tiktok!! 334K+ likes", vibe: "pop · smooth" },
+      { title: "Dunno", artist: "Mac Miller", spotifyId: "3YnwIp2b99p3e5dsFTXIIx", note: "mac miller appreciation!! the chill vibes are so ohyul", vibe: "chill · introspective" },
+      { title: "Pluto Projector", artist: "Rex Orange County", spotifyId: "4EWBhKf1fOFnyMtUzACXEc", note: "indie boy hours... this song is a whole journey", vibe: "indie · emotional" },
+      { title: "Baby", artist: "Justin Bieber ft. Ludacris", spotifyId: "6epn3r7S14KUqlReYr77hA", note: "a classic!! bieber influence runs deep in LNGSHOT", vibe: "pop · throwback" },
+      { title: "Maps", artist: "Maroon 5", spotifyId: "4gbVRS8gloEluzf0GzDOFc", note: "pop-rock vibes, ohyul's range of taste is impressive", vibe: "pop-rock · catchy" },
+      { title: "Nonstop", artist: "Drake", spotifyId: "0TlLq3lA83rQOYtrqBqSct", note: "drake on the playlist!! the energy is unmatched", vibe: "hip-hop · hype" },
+      { title: "You Know What", artist: "N.E.R.D", spotifyId: "40YQDJrYZFIP24QVfUi9Ar", note: "n.e.r.d pick shows his love for the experimental side of hip-hop", vibe: "alt hip-hop · funky" },
+      { title: "WUSYANAME", artist: "Tyler, The Creator ft. YoungBoy NBA & Ty Dolla $ign", spotifyId: "5B0kgjHULYJhAQkK5XsMoC", note: "tyler track!! the smooth summer vibes are chef's kiss", vibe: "hip-hop · smooth" },
+      { title: "No Brainer", artist: "DJ Khaled ft. Justin Bieber & Quavo", spotifyId: "5WvAo7DNuPRmk4APhdPzi8", note: "another bieber collab pick — ohyul knows what's good", vibe: "pop · hype" },
+      { title: "พี่ชอบหนูที่สุดเลย (I Like You)", artist: "PONCHET & VARINZ", spotifyId: "7mVobUmGP12Y5SQJgBice3", note: "a thai song on the list!! ohyul's taste is truly international", vibe: "thai pop · sweet" },
+      { title: "435", artist: "Tyler, The Creator", spotifyId: "5xJeZ6tLPOXNIrrphEIuay", note: "another tyler pick — ohyul is a real one for this", vibe: "hip-hop · alternative" },
+      { title: "Self Love", artist: "Metro Boomin & Coi Leray", spotifyId: "0AAMnNeIc6CdnfNU85GwCH", note: "spider-verse soundtrack taste!! metro boomin collab", vibe: "hip-hop · empowering" },
+      { title: "Angel Numbers / Ten Toes", artist: "Chris Brown", spotifyId: "3XqM8hLCEYlbnFjoWwqtFv", note: "chris brown's smooth side — fits ohyul's vocal style", vibe: "R&B · smooth" },
     ],
   },
   {
@@ -196,8 +207,21 @@ const MEMBERS = [
     photocardImage: "/images/photocards/chibi-ryul.png",
     note: "flow king. trust the process",
     musicTaste: "hip-hop focused, appeared on RAP:PUBLIC survival show. Jay Park said he was \"already a strong rapper at a young age.\" from Busan",
+    playlistUrl: "https://open.spotify.com/playlist/7hz3pZ6KFqt4WEDF6QaLny",
+    playlistName: "trust the process \u{1F525}",
     favoriteSongs: [
-      { title: "Ghost", artist: "Jack Harlow", spotifyId: "6I3mqTwhRpn34SLVafSH7G", note: "listed as his favorite — the smooth flow fits ryul's vibe perfectly", vibe: "hip-hop · smooth" },
+      { title: "History", artist: "88rising & Rich Brian", spotifyId: "4TwVtW7hS5LyLoDtJGpUOg", note: "88rising represent!! rich brian's flow is clean", vibe: "hip-hop · storytelling" },
+      { title: "Rain", artist: "Aitch & AJ Tracey ft. Tay Keith", spotifyId: "7h2ozcUpSL7ulXjRPPQcDy", note: "UK rap on the list!! ryul appreciates flows from everywhere", vibe: "UK rap · hard" },
+      { title: "Said Sum", artist: "Moneybagg Yo", spotifyId: "3NmjIYgsqzUgew8gkKUcs9", note: "that viral flow... ryul knows what hits", vibe: "hip-hop · catchy" },
+      { title: "Figure It Out", artist: "ian", spotifyId: "2JzFbgbD6cc6E0YSBAAGeY", note: "relatable vibes, figuring it out just like the rest of us", vibe: "hip-hop · reflective" },
+      { title: "SUNDOWN", artist: "Jack Harlow", spotifyId: "0ipgd8PPFza3NNmN3Rn2uF", note: "another harlow pick!! ryul is a real jack harlow fan", vibe: "hip-hop · chill" },
+      { title: "HEY BIG HEAD", artist: "Jack Harlow", spotifyId: "3FWIAl04a9ySFhk4HH15ov", note: "three jack harlow songs?? ryul has a type lol", vibe: "hip-hop · playful" },
+      { title: "Goodums", artist: "Unknown T & Sammy Virji", spotifyId: "0SLedTMdKihqLsR6CGPAfD", note: "UK scene appreciation!! the remix goes crazy", vibe: "UK rap · bouncy" },
+      { title: "Praise God", artist: "Kanye West", spotifyId: "0WSEq9Ko4kFPt8yo3ICd6T", note: "donda era kanye!! the build-up on this track is insane", vibe: "hip-hop · epic" },
+      { title: "Off The Grid", artist: "Kanye West", spotifyId: "6LNoArVBBVZzUTUiAX2aKO", note: "THE rap track of donda. fivio foreign went OFF and ryul knows it", vibe: "hip-hop · aggressive" },
+      { title: "LEMONHEAD", artist: "Tyler, The Creator ft. 42 Dugg", spotifyId: "5fbHRCsGpFIOLRtlhCRFDR", note: "tyler's hard-hitting side — the beat switch is everything", vibe: "hip-hop · hard" },
+      { title: "Self Love", artist: "Metro Boomin & Coi Leray", spotifyId: "0AAMnNeIc6CdnfNU85GwCH", note: "shares this pick with ohyul!! spider-verse stays winning", vibe: "hip-hop · empowering" },
+      { title: "Angel Numbers / Ten Toes", artist: "Chris Brown", spotifyId: "3XqM8hLCEYlbnFjoWwqtFv", note: "the smooth R&B side of ryul's taste — versatile king", vibe: "R&B · smooth" },
     ],
   },
   {
@@ -208,9 +232,17 @@ const MEMBERS = [
     photocardImage: "/images/photocards/chibi-woojin.png",
     note: "writes, dances, sings... is there anything he can't do??",
     musicTaste: "deep R&B and hip-hop appreciation. former BigHit trainee (6 years). his daily routine includes searching for new songs. attends Hanlim Arts High School for Practical Dance",
+    playlistUrl: "https://open.spotify.com/playlist/4mAxiG2sThW5gzIh2lWhgA",
+    playlistName: "donda to dropout",
     favoriteSongs: [
-      { title: "Show Me Love", artist: "Ty Dolla $ign", spotifyId: "7w5RTF0vnOi4xZ5oo724id", note: "one of his listed favorites — that smooth R&B sound he loves", vibe: "R&B · smooth" },
-      { title: "Neo Surf", artist: "Gener8ion & 070 Shake", spotifyId: "3Kkucw94v1e6yYKIRtnQMN", note: "shares this pick with ohyul! the experimental vibes hit different", vibe: "experimental · dreamy" },
+      { title: "Jail", artist: "Kanye West", spotifyId: "6d8HN8MqqbqrEUI2bvx0aG", note: "woojin is a HUGE kanye fan and it shows!! donda opener energy", vibe: "hip-hop · anthemic" },
+      { title: "Come to Life", artist: "Kanye West", spotifyId: "5xvXeuxISyXJDRbZZf4uzd", note: "the most beautiful song on donda... woojin has such deep taste", vibe: "hip-hop · cinematic" },
+      { title: "Ghost Town", artist: "Kanye West ft. PARTYNEXTDOOR", spotifyId: "7vgTNTaEz3CsBZ1N4YQalM", note: "ye era classic!! the 'i feel freeeee' hits different every time", vibe: "alternative · emotional" },
+      { title: "All Falls Down", artist: "Kanye West ft. Syleena Johnson", spotifyId: "5SkRLpaGtvYPhw02vZhQQ9", note: "throwback kanye!! woojin appreciates the classics", vibe: "hip-hop · conscious" },
+      { title: "Addiction", artist: "Kanye West", spotifyId: "5VzeI5JM2y9t21JwrWAnkH", note: "late registration deep cut — woojin is a real kanye connoisseur", vibe: "hip-hop · soulful" },
+      { title: "Magnolia", artist: "Playboi Carti", spotifyId: "1e1JKLEDKP7hEQzJfNAgPl", note: "carti energy!! the beat is iconic and woojin knows it", vibe: "hip-hop · trap" },
+      { title: "The Color Violet", artist: "Tory Lanez", spotifyId: "3azJifCSqg9fRij2yKIbWz", note: "tory's vocal performance on this... woojin's R&B taste showing", vibe: "R&B · romantic" },
+      { title: "HIGHEST IN THE ROOM", artist: "Travis Scott", spotifyId: "3eekarcy7kvN4yt5ZFzltW", note: "travis scott vibes!! the psychedelic sound fits woojin's artistic side", vibe: "hip-hop · psychedelic" },
     ],
   },
   {
@@ -221,9 +253,18 @@ const MEMBERS = [
     photocardImage: "/images/photocards/chibi-louis.png",
     note: "baby of the group but his vocals are NO joke",
     musicTaste: "huge Justin Bieber fan (nicknamed \"Baby Justin Bieber\"). French-Korean, speaks 4 languages. featured on JD McCrary's \"Lullaby Remix\" with Jay Park. co-wrote Jay Park's \"Remedy\" with Ohyul",
+    playlistUrl: "https://open.spotify.com/playlist/63ji7lqnqa70JtTOddnCUC",
+    playlistName: "louis after midnight",
     favoriteSongs: [
-      { title: "Feels Like Summer", artist: "Childish Gambino", spotifyId: "7DfFc7a3mCRbEZkwVSmCsR", note: "mentioned as a song he really enjoys — summer vibes for our maknae", vibe: "neo-soul · warm" },
-      { title: "Love", artist: "Keyshia Cole", spotifyId: "1Ib6HkndasBLnFCpQDuaKi", note: "chose this for his MORE VISION audition!! iconic choice", vibe: "R&B · emotional" },
+      { title: "Soft Spot", artist: "keshi", spotifyId: "2aL4lMGhWdPpyPL6COPou7", note: "keshi's soft vocals match louis's own vocal style so well", vibe: "indie R&B · tender" },
+      { title: "Here We Go... Again", artist: "The Weeknd ft. Tyler, The Creator", spotifyId: "0khQeEwEv6GndVypzpGOG5", note: "weeknd x tyler collab!! louis has elite taste in collabs", vibe: "R&B · atmospheric" },
+      { title: "Intentions", artist: "Justin Bieber ft. Quavo", spotifyId: "4umIPjkehX1r7uhmGvXiSV", note: "bieber fan louis strikes again!! the sweet vibes are so him", vibe: "pop · sweet" },
+      { title: "Wavy", artist: "Ty Dolla $ign ft. Joe Moses", spotifyId: "6oECOh5nAYmxz4EiYhjsPi", note: "ty dolla $ign influence showing!! the smooth waviness fits", vibe: "R&B · wavy" },
+      { title: "Guilty Conscience", artist: "070 Shake", spotifyId: "50aTwBKhPD3D3BW04UtjmA", note: "shares with ohyul — 070 shake is truly an LNGSHOT group fav", vibe: "dark · introspective" },
+      { title: "How Deep Is Your Love", artist: "Calvin Harris & Disciples", spotifyId: "22mek4IiqubGD9ctzxc69s", note: "house music on the list!! louis's taste has range", vibe: "house · groovy" },
+      { title: "STAY", artist: "The Kid LAROI & Justin Bieber", spotifyId: "5HCyWlXZPP0y6Gqq8TgA20", note: "bieber collab AND kid laroi?? louis WOULD pick this", vibe: "pop · catchy" },
+      { title: "Ransom", artist: "Lil Tecca", spotifyId: "2MQojywJbqOaWjuIbRG0d8", note: "viral hit energy — louis knows what's trending", vibe: "hip-hop · catchy" },
+      { title: "Don't", artist: "Bryson Tiller", spotifyId: "6T7AoQDVwLKZ04sfIca4Kl", note: "trapsoul classic!! bryson tiller's R&B influence on louis is real", vibe: "trapsoul · smooth" },
     ],
   },
 ];
@@ -927,6 +968,78 @@ function FavSongCard({ song, color, index }) {
   );
 }
 
+// ─── Playlist Section with Spotify Embed ───
+function PlaylistSection({ member }) {
+  const songs = member.favoriteSongs;
+  const playlistId = member.playlistUrl ? member.playlistUrl.split("/playlist/")[1] : null;
+
+  return (
+    <div style={{ marginBottom: 28 }}>
+      {/* Section header */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+        <div style={{
+          width: 5, height: 28, borderRadius: 3,
+          background: `linear-gradient(180deg, #1DB954, #1DB95444)`,
+        }} />
+        <div>
+          <div style={{
+            fontSize: 14, fontWeight: 700, color: "rgba(29, 185, 84, 0.7)",
+            letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
+            display: "flex", alignItems: "center", gap: 6,
+          }}>
+            <HeadphonesIcon /> {member.name}'S PLAYLIST
+          </div>
+          {member.playlistName && (
+            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>
+              "{member.playlistName}" — {songs.length} songs
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Spotify Playlist Embed */}
+      {playlistId && (
+        <div style={{
+          borderRadius: 14, overflow: "hidden", marginBottom: 16,
+          border: "1px solid rgba(29, 185, 84, 0.15)",
+        }}>
+          <iframe
+            style={{ borderRadius: 14, border: "none" }}
+            src={`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`}
+            width="100%"
+            height="352"
+            allowFullScreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          />
+        </div>
+      )}
+
+      {/* Open in Spotify CTA */}
+      {member.playlistUrl && (
+        <a
+          href={member.playlistUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+            width: "100%", padding: "12px 16px", borderRadius: 12,
+            background: "rgba(29, 185, 84, 0.1)", border: "1px solid rgba(29, 185, 84, 0.25)",
+            color: "#1DB954", fontSize: 13, fontWeight: 600,
+            fontFamily: "'Space Grotesk', sans-serif", cursor: "pointer",
+            textDecoration: "none", transition: "all 0.2s ease",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(29, 185, 84, 0.2)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(29, 185, 84, 0.1)"; }}
+        >
+          <SpotifyIcon />
+          open "{member.playlistName}" on Spotify
+        </a>
+      )}
+    </div>
+  );
+}
+
 // ─── Detail Photocard (flippable) ───
 function DetailPhotoCard({ member }) {
   const [flipped, setFlipped] = useState(false);
@@ -1118,58 +1231,7 @@ function MemberDetail({ member, allSongs, onBack, onSongClick }) {
 
       {/* Favorite Songs / Playlist Section */}
       {member.favoriteSongs && member.favoriteSongs.length > 0 && (
-        <div style={{ marginBottom: 28 }}>
-          {/* Section header */}
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <div style={{
-              width: 5, height: 28, borderRadius: 3,
-              background: `linear-gradient(180deg, #1DB954, #1DB95444)`,
-            }} />
-            <div>
-              <div style={{
-                fontSize: 14, fontWeight: 700, color: "rgba(29, 185, 84, 0.7)",
-                letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
-                display: "flex", alignItems: "center", gap: 6,
-              }}>
-                <HeadphonesIcon /> {member.name}'S PLAYLIST
-              </div>
-              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
-                songs {member.name.toLowerCase()} loves & recommends
-              </div>
-            </div>
-          </div>
-
-          {/* Song cards */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {member.favoriteSongs.map((song, i) => (
-              <div key={song.spotifyId}>
-                <FavSongCard song={song} color={member.color} index={i} />
-                {song.note && (
-                  <div style={{
-                    fontSize: 13, color: "rgba(255,255,255,0.3)", fontStyle: "italic",
-                    padding: "6px 16px 0 58px", lineHeight: 1.5,
-                    fontFamily: "'Space Grotesk', sans-serif",
-                  }}>
-                    <span style={{ color: "rgba(255, 182, 193, 0.5)", marginRight: 4 }}>~</span>
-                    {song.note}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div style={{
-            marginTop: 16, padding: "12px 16px", borderRadius: 12,
-            background: "rgba(29, 185, 84, 0.06)", border: "1px solid rgba(29, 185, 84, 0.15)",
-            display: "flex", alignItems: "center", gap: 8,
-            fontSize: 13, color: "rgba(255,255,255,0.35)",
-            fontFamily: "'Space Grotesk', sans-serif", fontStyle: "italic",
-          }}>
-            <SpotifyIcon />
-            <span>know more songs {member.name.toLowerCase()} likes? we'll add them as we find out more~</span>
-          </div>
-        </div>
+        <PlaylistSection member={member} />
       )}
 
       {/* Their LNGSHOT Contributions */}
@@ -1485,11 +1547,39 @@ export default function App() {
                   <FanNote text={album.fanNote} small />
                 </div>
 
-                <SpotifyAlbumCard title={album.title} type={album.type} date={album.date} trackCount={album.songs.length} spotifyAlbumId={album.spotifyAlbumId} color={album.color} />
+                {/* Spotify Album Embed */}
+                {album.spotifyAlbumId && (
+                  <div style={{ borderRadius: 14, overflow: "hidden", marginBottom: 16, border: `1px solid ${album.color}25` }}>
+                    <iframe
+                      style={{ borderRadius: 14, border: "none" }}
+                      src={`https://open.spotify.com/embed/album/${album.spotifyAlbumId}?utm_source=generator&theme=0`}
+                      width="100%" height="352" allowFullScreen
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
 
-                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                  {album.songs.map((song, i) => <SongCard key={song.id} song={song} album={album} index={i} onClick={() => openSong(song, album)} />)}
-                </div>
+                {/* Open on Spotify CTA */}
+                {album.spotifyAlbumId && (
+                  <a
+                    href={`https://open.spotify.com/album/${album.spotifyAlbumId}`}
+                    target="_blank" rel="noopener noreferrer"
+                    style={{
+                      display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                      width: "100%", padding: "12px 16px", borderRadius: 12,
+                      background: `${album.color}15`, border: `1px solid ${album.color}35`,
+                      color: album.color, fontSize: 13, fontWeight: 600,
+                      fontFamily: "'Space Grotesk', sans-serif", cursor: "pointer",
+                      textDecoration: "none", transition: "all 0.2s ease"
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = `${album.color}30`; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = `${album.color}15`; }}
+                  >
+                    <SpotifyIcon />
+                    open {album.title.toLowerCase()} on Spotify
+                  </a>
+                )}
               </div>
             ))}
 
