@@ -671,6 +671,200 @@ function HotContent() {
 }
 
 // ─── Latest Buzz (single latest from official channels) ───
+// ─── Next Event / Schedule ───
+// Fallback event data in case API is not configured yet
+const FALLBACK_EVENT = {
+  title: "ComplexCon Hong Kong",
+  date: "2026-03-21T20:00:00+08:00",
+  venue: "AsiaWorld-Expo, Hong Kong",
+  note: "Complex Live! Concert at ComplexCon Hong Kong 2026. LNGSHOT's first ever Hong Kong performance — performing alongside Jay Park, JENNIE, Yeat & Crush.",
+  color: "#FF3CAC",
+  ticketUrl: "https://www.complexconhk.com/complex-live",
+  tags: ["LIVE", "FIRST HK SHOW"],
+};
+
+function NextEventCard() {
+  const [evt, setEvt] = useState(FALLBACK_EVENT);
+  const [timeLeft, setTimeLeft] = useState({});
+  const [pulse, setPulse] = useState(true);
+
+  // Fetch from API
+  useEffect(() => {
+    const fetchEvent = async () => {
+      try {
+        const res = await fetch("/api/schedule");
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.nextEvent) {
+          setEvt({
+            title: data.nextEvent.title,
+            date: data.nextEvent.date,
+            venue: data.nextEvent.venue,
+            note: data.nextEvent.note,
+            color: data.nextEvent.color || "#FF3CAC",
+            ticketUrl: data.nextEvent.ticketUrl,
+            tags: data.nextEvent.tags?.length ? data.nextEvent.tags : ["LIVE"],
+          });
+        }
+      } catch (e) {
+        // silently fall back to hardcoded data
+      }
+    };
+    fetchEvent();
+  }, []);
+
+  // Countdown timer
+  useEffect(() => {
+    const calc = () => {
+      const now = new Date();
+      const target = new Date(evt.date);
+      const diff = target - now;
+      if (diff <= 0) return { days: 0, hours: 0, mins: 0, secs: 0, passed: true };
+      return {
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        mins: Math.floor((diff / (1000 * 60)) % 60),
+        secs: Math.floor((diff / 1000) % 60),
+        passed: false,
+      };
+    };
+    setTimeLeft(calc());
+    const t = setInterval(() => setTimeLeft(calc()), 1000);
+    const p = setInterval(() => setPulse(v => !v), 1500);
+    return () => { clearInterval(t); clearInterval(p); };
+  }, [evt.date]);
+  const CountBlock = ({ val, label }) => (
+    <div style={{ textAlign: "center", minWidth: 48 }}>
+      <div style={{
+        fontSize: 26, fontWeight: 800, color: "#fff",
+        fontFamily: "'Space Grotesk', sans-serif",
+        lineHeight: 1,
+      }}>{String(val).padStart(2, "0")}</div>
+      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)", marginTop: 4, letterSpacing: 1, textTransform: "uppercase" }}>{label}</div>
+    </div>
+  );
+
+  const Separator = () => (
+    <div style={{ fontSize: 22, fontWeight: 700, color: "rgba(255,255,255,0.2)", alignSelf: "flex-start", paddingTop: 2 }}>:</div>
+  );
+
+  return (
+    <div style={{ marginBottom: 28 }}>
+      {/* Section header */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+        <div style={{ width: 5, height: 28, borderRadius: 3, background: `linear-gradient(180deg, ${evt.color}, ${evt.color}44)` }} />
+        <div>
+          <div style={{
+            fontSize: 14, fontWeight: 700, color: `${evt.color}bb`,
+            letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
+            display: "flex", alignItems: "center", gap: 8,
+          }}>
+            <span style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: evt.color,
+              boxShadow: pulse ? `0 0 8px ${evt.color}88` : "none",
+              transition: "box-shadow 0.8s ease",
+              display: "inline-block",
+            }} />
+            NEXT EVENT
+          </div>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
+            mark your calendars!!
+          </div>
+        </div>
+      </div>
+
+      {/* Event card */}
+      <div style={{
+        background: `linear-gradient(135deg, ${evt.color}12, ${evt.color}06)`,
+        borderRadius: 18, padding: "20px 20px 18px",
+        border: `1px solid ${evt.color}20`,
+        position: "relative", overflow: "hidden",
+      }}>
+        {/* Subtle glow */}
+        <div style={{
+          position: "absolute", top: -40, right: -40, width: 120, height: 120,
+          borderRadius: "50%", background: `${evt.color}08`, filter: "blur(30px)", pointerEvents: "none",
+        }} />
+
+        {/* Tags */}
+        <div style={{ display: "flex", gap: 6, marginBottom: 12, flexWrap: "wrap" }}>
+          {evt.tags.map(tag => (
+            <span key={tag} style={{
+              fontSize: 10, fontWeight: 700, color: evt.color,
+              background: `${evt.color}18`, border: `1px solid ${evt.color}30`,
+              padding: "3px 10px", borderRadius: 20, letterSpacing: 1,
+              fontFamily: "'Space Grotesk', sans-serif",
+            }}>{tag}</span>
+          ))}
+        </div>
+
+        {/* Event title & details */}
+        <div style={{ fontSize: 20, fontWeight: 800, color: "#fff", fontFamily: "'Space Grotesk', sans-serif", letterSpacing: -0.3, marginBottom: 4 }}>
+          {evt.title}
+        </div>
+        {evt.venue && (
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", marginBottom: 14, display: "flex", alignItems: "center", gap: 6 }}>
+            <span>📍</span> {evt.venue}
+          </div>
+        )}
+
+        {/* Countdown */}
+        {!timeLeft.passed ? (
+          <div style={{
+            background: "rgba(0,0,0,0.25)", borderRadius: 14, padding: "16px 12px",
+            marginBottom: 14, border: "1px solid rgba(255,255,255,0.06)",
+          }}>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 6 }}>
+              <CountBlock val={timeLeft.days} label="days" />
+              <Separator />
+              <CountBlock val={timeLeft.hours} label="hrs" />
+              <Separator />
+              <CountBlock val={timeLeft.mins} label="min" />
+              <Separator />
+              <CountBlock val={timeLeft.secs} label="sec" />
+            </div>
+          </div>
+        ) : (
+          <div style={{
+            background: `${evt.color}20`, borderRadius: 14, padding: "14px",
+            marginBottom: 14, textAlign: "center",
+            fontSize: 14, fontWeight: 700, color: evt.color,
+            fontFamily: "'Space Grotesk', sans-serif",
+          }}>
+            HAPPENING NOW / ALREADY HAPPENED
+          </div>
+        )}
+
+        {/* Fan note */}
+        <div style={{
+          fontSize: 13, color: "rgba(255,255,255,0.4)", fontStyle: "italic",
+          lineHeight: 1.5, marginBottom: 14, paddingLeft: 2,
+        }}>
+          💬 {evt.note}
+        </div>
+
+        {/* Ticket CTA */}
+        <a
+          href={evt.ticketUrl} target="_blank" rel="noopener noreferrer"
+          style={{
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+            width: "100%", padding: "12px 16px", borderRadius: 12,
+            background: `${evt.color}18`, border: `1px solid ${evt.color}30`,
+            color: evt.color, fontSize: 13, fontWeight: 700,
+            fontFamily: "'Space Grotesk', sans-serif", cursor: "pointer",
+            textDecoration: "none", transition: "all 0.2s ease",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = `${evt.color}30`; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = `${evt.color}18`; }}
+        >
+          🎟️ tickets & info
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function LatestBuzz() {
   const [video, setVideo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -1527,6 +1721,9 @@ export default function App() {
             {/* Hot Content + Latest Buzz */}
             {!searchQuery && <HotContent />}
             {!searchQuery && <LatestBuzz />}
+
+            {/* Next Event */}
+            {!searchQuery && <NextEventCard />}
 
             {/* Albums */}
             {!searchQuery && ALBUMS.map(album => (
