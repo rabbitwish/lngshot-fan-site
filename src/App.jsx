@@ -1619,6 +1619,197 @@ function PhotoCardSection({ members, onMemberClick }) {
   );
 }
 
+// ─── Live Playlist Widget ───
+function LivePlaylistWidget() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetch("/live-videos.json")
+      .then(r => r.json())
+      .then(data => setVideos(data))
+      .catch(() => setVideos([]));
+  }, []);
+
+  const activeVideo = videos[activeIdx];
+
+  return (
+    <div style={{
+      position: "fixed",
+      bottom: 20,
+      right: 20,
+      zIndex: 9999,
+      fontFamily: "'Space Grotesk', sans-serif",
+    }}>
+      {/* Collapsed pill button */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          style={{
+            display: "flex", alignItems: "center", gap: 8,
+            background: "linear-gradient(135deg, #FF6B35, #E74C3C)",
+            border: "none", borderRadius: 30, padding: "10px 18px",
+            color: "#fff", fontSize: 13, fontWeight: 700,
+            cursor: "pointer", boxShadow: "0 4px 20px rgba(255,107,53,0.45)",
+            letterSpacing: 0.3, transition: "transform 0.15s ease",
+          }}
+          onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"}
+          onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+        >
+          <span style={{ fontSize: 15 }}>▶</span>
+          Live Corner
+        </button>
+      )}
+
+      {/* Expanded widget */}
+      {isOpen && !activeVideo && (
+        <div style={{ width: 280, background: "rgba(15,15,30,0.97)", border: "1px solid rgba(255,107,53,0.25)", borderRadius: 16, padding: "20px 16px", textAlign: "center", color: "rgba(255,255,255,0.4)", fontSize: 12 }}>
+          Loading videos…
+        </div>
+      )}
+      {isOpen && activeVideo && (
+        <div style={{
+          width: isExpanded ? 380 : 280,
+          background: "rgba(15, 15, 30, 0.97)",
+          border: "1px solid rgba(255,107,53,0.25)",
+          borderRadius: 16,
+          overflow: "hidden",
+          boxShadow: "0 8px 40px rgba(0,0,0,0.7)",
+          transition: "width 0.25s ease",
+        }}>
+          {/* Widget header */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            padding: "10px 14px",
+            background: "linear-gradient(135deg, rgba(255,107,53,0.2), rgba(231,76,60,0.15))",
+            borderBottom: "1px solid rgba(255,107,53,0.15)",
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+              <span style={{ fontSize: 12, color: "#FF6B35" }}>▶</span>
+              <span style={{ fontSize: 12, fontWeight: 800, color: "#fff", letterSpacing: 0.5 }}>Live Corner</span>
+            </div>
+            <div style={{ display: "flex", gap: 6 }}>
+              {/* expand/shrink toggle */}
+              <button
+                onClick={() => setIsExpanded(v => !v)}
+                title={isExpanded ? "Shrink" : "Expand"}
+                style={{
+                  background: "rgba(255,255,255,0.08)", border: "none",
+                  color: "rgba(255,255,255,0.5)", borderRadius: 6,
+                  width: 22, height: 22, cursor: "pointer", fontSize: 11,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}
+              >
+                {isExpanded ? "◀" : "▶"}
+              </button>
+              {/* close button */}
+              <button
+                onClick={() => setIsOpen(false)}
+                style={{
+                  background: "rgba(255,255,255,0.08)", border: "none",
+                  color: "rgba(255,255,255,0.5)", borderRadius: 6,
+                  width: 22, height: 22, cursor: "pointer", fontSize: 13,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+
+          {/* YouTube player */}
+          <div style={{ position: "relative", width: "100%", paddingTop: "56.25%", background: "#000" }}>
+            <iframe
+              key={activeVideo.id}
+              src={`https://www.youtube.com/embed/${activeVideo.id}?autoplay=0&rel=0&modestbranding=1`}
+              title={activeVideo.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: "absolute", top: 0, left: 0,
+                width: "100%", height: "100%", border: "none",
+              }}
+            />
+          </div>
+
+          {/* Now playing label */}
+          <div style={{
+            padding: "8px 12px 4px",
+            fontSize: 11, color: "rgba(255,255,255,0.4)",
+            letterSpacing: 0.5, textTransform: "uppercase",
+          }}>
+            now playing
+          </div>
+          <div style={{
+            padding: "0 12px 10px",
+            fontSize: 12, fontWeight: 700, color: "#fff",
+            lineHeight: 1.4,
+            overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+          }}>
+            {activeVideo.title}
+          </div>
+
+          {/* Playlist */}
+          <div style={{
+            maxHeight: 150, overflowY: "auto",
+            borderTop: "1px solid rgba(255,255,255,0.06)",
+          }}>
+            {videos.map((vid, i) => (
+              <button
+                key={vid.id}
+                onClick={() => setActiveIdx(i)}
+                style={{
+                  width: "100%", textAlign: "left", display: "flex",
+                  alignItems: "center", gap: 8,
+                  padding: "8px 12px",
+                  background: i === activeIdx ? "rgba(255,107,53,0.15)" : "transparent",
+                  border: "none", borderBottom: "1px solid rgba(255,255,255,0.04)",
+                  cursor: "pointer", transition: "background 0.15s ease",
+                }}
+                onMouseEnter={e => { if (i !== activeIdx) e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
+                onMouseLeave={e => { if (i !== activeIdx) e.currentTarget.style.background = "transparent"; }}
+              >
+                <span style={{
+                  fontSize: 10, color: i === activeIdx ? "#FF6B35" : "rgba(255,255,255,0.2)",
+                  minWidth: 14, fontWeight: 700,
+                }}>
+                  {i === activeIdx ? "▶" : `${i + 1}`}
+                </span>
+                <span style={{
+                  fontSize: 11, color: i === activeIdx ? "#fff" : "rgba(255,255,255,0.45)",
+                  fontWeight: i === activeIdx ? 700 : 400,
+                  overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                  flex: 1,
+                }}>
+                  {vid.title}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Footer link to YouTube channel */}
+          <div style={{ padding: "8px 12px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <a
+              href="https://www.youtube.com/@LNGSHOT4SHO"
+              target="_blank" rel="noopener noreferrer"
+              style={{
+                fontSize: 11, color: "rgba(255,107,53,0.7)",
+                textDecoration: "none", display: "flex", alignItems: "center", gap: 5,
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = "#FF6B35"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,107,53,0.7)"}
+            >
+              <span>▶</span> more on YouTube →
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Main App ───
 export default function App() {
   const [view, setView] = useState("home");
@@ -1658,6 +1849,7 @@ export default function App() {
       `}</style>
 
       <FloatingNotes />
+      <LivePlaylistWidget />
 
       <div style={{ maxWidth: 580, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1, paddingBottom: 40 }}>
         {/* Header */}
