@@ -1851,6 +1851,41 @@ export default function App() {
       <FloatingNotes />
       <LivePlaylistWidget />
 
+      {/* ── Woojin Birthday Banner (March 8 only) ── */}
+      {(() => { const now = new Date(); return now.getMonth() === 2 && now.getDate() === 8; })() && (
+        <div style={{
+          width: "100%",
+          maxWidth: 860,
+          margin: "0 auto",
+          padding: "18px 16px 0",
+          position: "relative",
+          zIndex: 2,
+          animation: "fadeIn 0.8s ease",
+        }}>
+          <div style={{ position: "relative", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 30px rgba(255,150,180,0.25)" }}>
+            <img
+              src="/woojin_birthday_banner.png"
+              alt="Happy Birthday Woojin!"
+              style={{ width: "100%", display: "block", borderRadius: 16 }}
+            />
+            <div style={{
+              position: "absolute", top: 10, right: 14,
+              background: "linear-gradient(135deg, #ff6b9d, #ff9ac1)",
+              color: "#fff",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: 1.2,
+              padding: "4px 10px",
+              borderRadius: 20,
+              boxShadow: "0 2px 8px rgba(255,100,150,0.4)",
+              textTransform: "uppercase",
+            }}>
+              Today!
+            </div>
+          </div>
+        </div>
+      )}
+
       <div style={{ maxWidth: 580, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1, paddingBottom: 40 }}>
         {/* Header */}
         <header style={{ textAlign: "center", paddingTop: 40, paddingBottom: 10, animation: "fadeIn 0.5s ease" }}>
