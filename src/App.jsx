@@ -616,10 +616,10 @@ function SongDetail({ song, album, onBack }) {
 
 // ─── Hot Content (YouTube MVs) ───
 const HOT_VIDEOS = [
-  { id: "8w6M-RVj1z0", title: "Backseat", tag: "LATEST MV", color: "#FF6B6B" },
-  { id: "HJgdT15UT4k", title: "Moonwalkin'", tag: "DEBUT MV", color: "#C084FC" },
-  { id: "V5tRwughjgU", title: "FaceTime", tag: "FAN FAVORITE", color: "#60A5FA" },
-  { id: "GFRu5ea_klk", title: "Saucin'", tag: "PRE-DEBUT", color: "#34D399" },
+  { id: "P2llSm9tZvA", title: "Vanilla Days", tag: "NEW EP", color: "#2ECC71" },
+  { id: "vxdfyofrku8", title: "Good Girls", tag: "TRAINING DAY", color: "#FF6B6B" },
+  { id: "dFsTg4KkJII", title: "4SHOBOSHOW TEASER", tag: "NEW SHOW", color: "#C084FC" },
+  { id: "LsTZIRwuCe4", title: "4SHOTAPE", tag: "TRENDING", color: "#60A5FA" },
 ];
 
 function HotContent() {
