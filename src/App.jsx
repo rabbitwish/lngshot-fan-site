@@ -348,6 +348,15 @@ const FUN_FACTS = [
   "Moonwalkin' references both Michael Jackson and Beyoncé",
   "Billboard Korea named them Rookie of the Month for February 2026",
   "The group name is stylized as LNGSHOT (no vowels!) — longshot without the O",
+  "Training Day EP gives each member their own solo spotlight track — Good Girls (Louis), Boo Thang (Woojin), Summer Eyes (Ohyul), and For Us (Ryul)",
+  "LNGSHOT performed at ComplexCon Hong Kong 2026 alongside JENNIE, Jay Park, Yeat & Crush — their first ever Hong Kong show",
+  "Moonwalkin' was actually the very first song LNGSHOT ever recorded together — it was originally meant to be a Woojin solo track",
+  "Louis is French-Korean and speaks 4 languages — he's nicknamed \"Baby Justin Bieber\"",
+  "Ohyul and Louis co-wrote Jay Park's \"Remedy\" together before LNGSHOT even debuted",
+  "Woojin was a BigHit trainee for 6 years before joining MORE VISION — his daily routine includes searching for new songs",
+  "Ryul appeared on RAP:PUBLIC survival show — Jay Park said he was \"already a strong rapper at a young age\"",
+  "Never Let Go from the SHOT CALLERS EP was written entirely by the LNGSHOT members themselves",
+  "The Saucin' MV references the actual controversy when LNGSHOT's debut photos got criticized online — Jay Park turned it into comedy gold",
 ];
 
 // ─── Icons ───
@@ -614,16 +623,32 @@ function SongDetail({ song, album, onBack }) {
   );
 }
 
-// ─── Hot Content (YouTube MVs) ───
-const HOT_VIDEOS = [
-  { id: "P2llSm9tZvA", title: "Vanilla Days", tag: "NEW EP", color: "#2ECC71" },
-  { id: "vxdfyofrku8", title: "Good Girls", tag: "TRAINING DAY", color: "#FF6B6B" },
-  { id: "dFsTg4KkJII", title: "4SHOBOSHOW TEASER", tag: "NEW SHOW", color: "#C084FC" },
-  { id: "LsTZIRwuCe4", title: "4SHOTAPE", tag: "TRENDING", color: "#60A5FA" },
+// ─── Hot Content (Most Viewed YouTube Videos) ───
+const FALLBACK_VIDEOS = [
+  { id: "P2llSm9tZvA", title: "Vanilla Days", viewCountFormatted: "", badge: "OFFICIAL" },
+  { id: "vxdfyofrku8", title: "Good Girls", viewCountFormatted: "", badge: "OFFICIAL" },
+  { id: "dFsTg4KkJII", title: "4SHOBOSHOW TEASER", viewCountFormatted: "", badge: "OFFICIAL" },
+  { id: "LsTZIRwuCe4", title: "4SHOTAPE", viewCountFormatted: "", badge: "OFFICIAL" },
 ];
+
+const BADGE_COLORS = {
+  OFFICIAL: "#FF6B6B",
+  LABEL: "#C084FC",
+  MEDIA: "#60A5FA",
+};
 
 function HotContent() {
   const [activeVideo, setActiveVideo] = useState(null);
+  const [videos, setVideos] = useState(FALLBACK_VIDEOS);
+
+  useEffect(() => {
+    fetch("/api/youtube-hot")
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (data?.videos?.length) setVideos(data.videos);
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <div style={{ marginBottom: 28 }}>
@@ -640,7 +665,7 @@ function HotContent() {
             🔥 HOT CONTENT
           </div>
           <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
-            official MVs · tap to watch
+            most viewed videos · tap to watch
           </div>
         </div>
       </div>
@@ -663,65 +688,82 @@ function HotContent() {
 
       {/* Video grid */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-        {HOT_VIDEOS.map((v) => (
-          <div
-            key={v.id}
-            onClick={() => setActiveVideo(v.id)}
-            style={{
-              position: "relative", borderRadius: 14, overflow: "hidden",
-              cursor: "pointer", transition: "all 0.25s ease",
-              border: activeVideo === v.id
-                ? `1.5px solid ${v.color}66`
-                : "1.5px solid rgba(255,255,255,0.06)",
-              background: activeVideo === v.id
-                ? `${v.color}11`
-                : "rgba(255,255,255,0.03)",
-            }}
-          >
-            <div style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
-              <img
-                src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`}
-                alt={v.title}
-                style={{
-                  width: "100%", height: "100%", objectFit: "cover",
-                  display: "block", opacity: 0.85, transition: "opacity 0.2s",
-                }}
-              />
-              {/* Play overlay */}
-              <div style={{
-                position: "absolute", inset: 0,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                background: "rgba(0,0,0,0.25)",
-              }}>
+        {videos.map((v) => {
+          const color = BADGE_COLORS[v.badge] || "#FF6B6B";
+          return (
+            <div
+              key={v.id}
+              onClick={() => setActiveVideo(v.id)}
+              style={{
+                position: "relative", borderRadius: 14, overflow: "hidden",
+                cursor: "pointer", transition: "all 0.25s ease",
+                border: activeVideo === v.id
+                  ? `1.5px solid ${color}66`
+                  : "1.5px solid rgba(255,255,255,0.06)",
+                background: activeVideo === v.id
+                  ? `${color}11`
+                  : "rgba(255,255,255,0.03)",
+              }}
+            >
+              <div style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
+                <img
+                  src={v.thumbnail || `https://img.youtube.com/vi/${v.id}/mqdefault.jpg`}
+                  alt={v.title}
+                  style={{
+                    width: "100%", height: "100%", objectFit: "cover",
+                    display: "block", opacity: 0.85, transition: "opacity 0.2s",
+                  }}
+                />
+                {/* Play overlay */}
                 <div style={{
-                  width: 36, height: 36, borderRadius: "50%",
-                  background: "rgba(255,255,255,0.9)", display: "flex",
-                  alignItems: "center", justifyContent: "center",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                  position: "absolute", inset: 0,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  background: "rgba(0,0,0,0.25)",
                 }}>
-                  <span style={{ fontSize: 14, marginLeft: 2, color: "#111" }}>▶</span>
+                  <div style={{
+                    width: 36, height: 36, borderRadius: "50%",
+                    background: "rgba(255,255,255,0.9)", display: "flex",
+                    alignItems: "center", justifyContent: "center",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                  }}>
+                    <span style={{ fontSize: 14, marginLeft: 2, color: "#111" }}>▶</span>
+                  </div>
+                </div>
+                {/* View count badge */}
+                {v.viewCountFormatted && (
+                  <div style={{
+                    position: "absolute", top: 8, left: 8,
+                    fontSize: 10, fontWeight: 700, letterSpacing: 0.5,
+                    color: "#fff", background: "rgba(0,0,0,0.7)",
+                    padding: "2px 7px", borderRadius: 6,
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    display: "flex", alignItems: "center", gap: 3,
+                  }}>
+                    <span style={{ fontSize: 9 }}>👁</span> {v.viewCountFormatted}
+                  </div>
+                )}
+                {/* Channel badge */}
+                <div style={{
+                  position: "absolute", top: 8, right: 8,
+                  fontSize: 9, fontWeight: 700, letterSpacing: 1,
+                  color: "#fff", background: `${color}CC`,
+                  padding: "2px 6px", borderRadius: 6,
+                  fontFamily: "'Space Grotesk', sans-serif",
+                }}>
+                  {v.badge}
                 </div>
               </div>
-              {/* Tag badge */}
               <div style={{
-                position: "absolute", top: 8, left: 8,
-                fontSize: 10, fontWeight: 700, letterSpacing: 1,
-                color: "#fff", background: `${v.color}CC`,
-                padding: "2px 7px", borderRadius: 6,
+                padding: "9px 12px",
+                fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.75)",
                 fontFamily: "'Space Grotesk', sans-serif",
+                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
               }}>
-                {v.tag}
+                {v.title}
               </div>
             </div>
-            <div style={{
-              padding: "9px 12px",
-              fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.75)",
-              fontFamily: "'Space Grotesk', sans-serif",
-            }}>
-              {v.title}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <a
