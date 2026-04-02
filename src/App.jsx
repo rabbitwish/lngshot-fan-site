@@ -976,7 +976,8 @@ function NextEventCard() {
           💬 {evt.note}
         </div>
 
-        {/* Ticket CTA */}
+        {/* Ticket CTA — only show if ticketUrl exists */}
+        {evt.ticketUrl && (
         <a
           href={evt.ticketUrl} target="_blank" rel="noopener noreferrer"
           style={{
@@ -992,6 +993,7 @@ function NextEventCard() {
         >
           🎟️ tickets & info
         </a>
+        )}
       </div>
     </div>
   );
