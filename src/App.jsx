@@ -257,16 +257,18 @@ const MEMBERS = [
     playlistUrl: "https://open.spotify.com/playlist/7ftHLy68TXH83Eb0Okiu7o",
     playlistName: "ohyul's sonic universe",
     favoriteSongs: [
-      { title: "Dunno", artist: "Mac Miller", spotifyId: "3YnwIp2b99p3e5dsFTXIIx", note: "mac miller appreciation!! the chill vibes are so ohyul", vibe: "chill · introspective" },
+      { title: "Dang!", artist: "Mac Miller ft. Anderson .Paak", spotifyId: "", note: "mac miller x anderson .paak!! the groove is everything", vibe: "hip-hop · groovy" },
       { title: "Pluto Projector", artist: "Rex Orange County", spotifyId: "4EWBhKf1fOFnyMtUzACXEc", note: "indie boy hours... this song is a whole journey", vibe: "indie · emotional" },
-      { title: "Baby", artist: "Justin Bieber ft. Ludacris", spotifyId: "6epn3r7S14KUqlReYr77hA", note: "a classic!! bieber influence runs deep in LNGSHOT", vibe: "pop · throwback" },
-      { title: "Maps", artist: "Maroon 5", spotifyId: "4gbVRS8gloEluzf0GzDOFc", note: "pop-rock vibes, ohyul's range of taste is impressive", vibe: "pop-rock · catchy" },
+      { title: "GO BABY", artist: "Justin Bieber", spotifyId: "", note: "bieber influence runs deep!! ohyul really loves his JB", vibe: "pop · energetic" },
+      { title: "Star", artist: "Marv", spotifyId: "", note: "marv deep cut!! ohyul always finds the hidden gems", vibe: "alternative · smooth" },
       { title: "Nonstop", artist: "Drake", spotifyId: "0TlLq3lA83rQOYtrqBqSct", note: "drake on the playlist!! the energy is unmatched", vibe: "hip-hop · hype" },
       { title: "You Know What", artist: "N.E.R.D", spotifyId: "40YQDJrYZFIP24QVfUi9Ar", note: "n.e.r.d pick shows his love for the experimental side of hip-hop", vibe: "alt hip-hop · funky" },
-      { title: "WUSYANAME", artist: "Tyler, The Creator ft. YoungBoy NBA & Ty Dolla $ign", spotifyId: "5B0kgjHULYJhAQkK5XsMoC", note: "tyler track!! the smooth summer vibes are chef's kiss", vibe: "hip-hop · smooth" },
-      { title: "No Brainer", artist: "DJ Khaled ft. Justin Bieber & Quavo", spotifyId: "5WvAo7DNuPRmk4APhdPzi8", note: "another bieber collab pick — ohyul knows what's good", vibe: "pop · hype" },
-      { title: "พี่ชอบหนูที่สุดเลย (I Like You)", artist: "PONCHET & VARINZ", spotifyId: "7mVobUmGP12Y5SQJgBice3", note: "a thai song on the list!! ohyul's taste is truly international", vibe: "thai pop · sweet" },
-      { title: "435", artist: "Tyler, The Creator", spotifyId: "5xJeZ6tLPOXNIrrphEIuay", note: "another tyler pick — ohyul is a real one for this", vibe: "hip-hop · alternative" },
+      { title: "Hummingbird", artist: "Metro Boomin & James Blake", spotifyId: "", note: "metro boomin x james blake!! the atmospheric production is chef's kiss", vibe: "electronic · atmospheric" },
+      { title: "WUSYANAME", artist: "Tyler, The Creator ft. YoungBoy Never Broke Again & Ty Dolla $ign", spotifyId: "5B0kgjHULYJhAQkK5XsMoC", note: "tyler track!! the smooth summer vibes are chef's kiss", vibe: "hip-hop · smooth" },
+      { title: "Neo Surf", artist: "Gener8ion & 070 Shake", spotifyId: "", note: "070 shake fan confirmed!! the experimental vibes match his style perfectly", vibe: "experimental · dreamy" },
+      { title: "No Brainer", artist: "DJ Khaled ft. Justin Bieber, Chance the Rapper & Quavo", spotifyId: "5WvAo7DNuPRmk4APhdPzi8", note: "another bieber collab pick — ohyul knows what's good", vibe: "pop · hype" },
+      { title: "พี่ชอบหนูที่สุดเลย (I Like You The Most)", artist: "PONCHET ft. VARINZ", spotifyId: "7mVobUmGP12Y5SQJgBice3", note: "a thai song on the list!! ohyul's taste is truly international", vibe: "thai pop · sweet" },
+      { title: "2SEATER", artist: "Tyler, The Creator ft. Aaron Shaw, Samantha Nelson & Austin Feinstein", spotifyId: "", note: "deep tyler cut from cherry bomb!! ohyul really knows his discography", vibe: "hip-hop · alternative" },
       { title: "Self Love", artist: "Metro Boomin & Coi Leray", spotifyId: "0AAMnNeIc6CdnfNU85GwCH", note: "spider-verse soundtrack taste!! metro boomin collab", vibe: "hip-hop · empowering" },
       { title: "Angel Numbers / Ten Toes", artist: "Chris Brown", spotifyId: "3XqM8hLCEYlbnFjoWwqtFv", note: "chris brown's smooth side — fits ohyul's vocal style", vibe: "R&B · smooth" },
     ],
@@ -284,16 +286,19 @@ const MEMBERS = [
     favoriteSongs: [
       { title: "History", artist: "88rising & Rich Brian", spotifyId: "4TwVtW7hS5LyLoDtJGpUOg", note: "88rising represent!! rich brian's flow is clean", vibe: "hip-hop · storytelling" },
       { title: "Rain", artist: "Aitch & AJ Tracey ft. Tay Keith", spotifyId: "7h2ozcUpSL7ulXjRPPQcDy", note: "UK rap on the list!! ryul appreciates flows from everywhere", vibe: "UK rap · hard" },
-      { title: "Said Sum", artist: "Moneybagg Yo", spotifyId: "3NmjIYgsqzUgew8gkKUcs9", note: "that viral flow... ryul knows what hits", vibe: "hip-hop · catchy" },
+      { title: "By Myself", artist: "Lil Baby & Rylo Rodriguez ft. Rod Wave", spotifyId: "", note: "lil baby x rylo rodriguez!! rod wave feature makes this even harder", vibe: "hip-hop · emotional" },
+      { title: "Just score it", artist: "OsamaSon", spotifyId: "", note: "osamason on the playlist!! ryul stays finding the underground gems", vibe: "hip-hop · raw" },
+      { title: "TRYNA MAKE SURE", artist: "Moneybagg Yo", spotifyId: "", note: "moneybagg yo goes crazy on this!! the flow is infectious", vibe: "hip-hop · hard" },
+      { title: "yoona flow", artist: "k3", spotifyId: "", note: "k3 deep cut!! ryul really digs into the underground scene", vibe: "hip-hop · underground" },
       { title: "Figure It Out", artist: "ian", spotifyId: "2JzFbgbD6cc6E0YSBAAGeY", note: "relatable vibes, figuring it out just like the rest of us", vibe: "hip-hop · reflective" },
       { title: "SUNDOWN", artist: "Jack Harlow", spotifyId: "0ipgd8PPFza3NNmN3Rn2uF", note: "another harlow pick!! ryul is a real jack harlow fan", vibe: "hip-hop · chill" },
-      { title: "HEY BIG HEAD", artist: "Jack Harlow", spotifyId: "3FWIAl04a9ySFhk4HH15ov", note: "three jack harlow songs?? ryul has a type lol", vibe: "hip-hop · playful" },
-      { title: "Goodums", artist: "Unknown T & Sammy Virji", spotifyId: "0SLedTMdKihqLsR6CGPAfD", note: "UK scene appreciation!! the remix goes crazy", vibe: "UK rap · bouncy" },
+      { title: "HEY BIG HEAD", artist: "Jack Harlow", spotifyId: "3FWIAl04a9ySFhk4HH15ov", note: "jack harlow twice?? ryul has a type lol", vibe: "hip-hop · playful" },
+      { title: "Goodums", artist: "Unknown T & Sammy Virji", spotifyId: "0SLedTMdKihqLsR6CGPAfD", note: "UK scene appreciation!! the sammy virji remix goes crazy", vibe: "UK rap · bouncy" },
+      { title: "CAP", artist: "Burrell", spotifyId: "", note: "burrell on the list!! ryul loves discovering new flows", vibe: "hip-hop · gritty" },
+      { title: "Cold Palmer", artist: "S.A.G.", spotifyId: "", note: "S.A.G. pick!! ryul's playlist is like a treasure hunt fr", vibe: "hip-hop · unique" },
       { title: "Praise God", artist: "Kanye West", spotifyId: "0WSEq9Ko4kFPt8yo3ICd6T", note: "donda era kanye!! the build-up on this track is insane", vibe: "hip-hop · epic" },
       { title: "Off The Grid", artist: "Kanye West", spotifyId: "6LNoArVBBVZzUTUiAX2aKO", note: "THE rap track of donda. fivio foreign went OFF and ryul knows it", vibe: "hip-hop · aggressive" },
-      { title: "LEMONHEAD", artist: "Tyler, The Creator ft. 42 Dugg", spotifyId: "5fbHRCsGpFIOLRtlhCRFDR", note: "tyler's hard-hitting side — the beat switch is everything", vibe: "hip-hop · hard" },
-      { title: "Self Love", artist: "Metro Boomin & Coi Leray", spotifyId: "0AAMnNeIc6CdnfNU85GwCH", note: "shares this pick with ohyul!! spider-verse stays winning", vibe: "hip-hop · empowering" },
-      { title: "Angel Numbers / Ten Toes", artist: "Chris Brown", spotifyId: "3XqM8hLCEYlbnFjoWwqtFv", note: "the smooth R&B side of ryul's taste — versatile king", vibe: "R&B · smooth" },
+      { title: "Field Trip", artist: "¥$ (Kanye West & Ty Dolla $ign)", spotifyId: "", note: "¥$ era!! kanye x ty dolla $ign collab is perfect for ryul's taste", vibe: "hip-hop · epic" },
     ],
   },
   {
@@ -311,10 +316,17 @@ const MEMBERS = [
       { title: "Come to Life", artist: "Kanye West", spotifyId: "5xvXeuxISyXJDRbZZf4uzd", note: "the most beautiful song on donda... woojin has such deep taste", vibe: "hip-hop · cinematic" },
       { title: "Ghost Town", artist: "Kanye West ft. PARTYNEXTDOOR", spotifyId: "7vgTNTaEz3CsBZ1N4YQalM", note: "ye era classic!! the 'i feel freeeee' hits different every time", vibe: "alternative · emotional" },
       { title: "All Falls Down", artist: "Kanye West ft. Syleena Johnson", spotifyId: "5SkRLpaGtvYPhw02vZhQQ9", note: "throwback kanye!! woojin appreciates the classics", vibe: "hip-hop · conscious" },
-      { title: "Addiction", artist: "Kanye West", spotifyId: "5VzeI5JM2y9t21JwrWAnkH", note: "late registration deep cut — woojin is a real kanye connoisseur", vibe: "hip-hop · soulful" },
-      { title: "Magnolia", artist: "Playboi Carti", spotifyId: "1e1JKLEDKP7hEQzJfNAgPl", note: "carti energy!! the beat is iconic and woojin knows it", vibe: "hip-hop · trap" },
-      { title: "The Color Violet", artist: "Tory Lanez", spotifyId: "3azJifCSqg9fRij2yKIbWz", note: "tory's vocal performance on this... woojin's R&B taste showing", vibe: "R&B · romantic" },
-      { title: "HIGHEST IN THE ROOM", artist: "Travis Scott", spotifyId: "3eekarcy7kvN4yt5ZFzltW", note: "travis scott vibes!! the psychedelic sound fits woojin's artistic side", vibe: "hip-hop · psychedelic" },
+      { title: "I BEEEEEE YOU BABY BOI", artist: "Playboi Carti", spotifyId: "", note: "carti on the playlist!! woojin's hip-hop taste runs deep", vibe: "hip-hop · trap" },
+      { title: "I Sip", artist: "Tory Lanez", spotifyId: "", note: "tory lanez appreciation!! woojin loves the vocal melodies", vibe: "R&B · melodic" },
+      { title: "Do You Remember (Lost Tapes 2016)", artist: "Tory Lanez & Dave", spotifyId: "", note: "tory lanez & dave collab from the lost tapes era!! deep cut", vibe: "R&B · nostalgic" },
+      { title: "Miss You", artist: "Cashmere Cat, Major Lazer & Tory Lanez", spotifyId: "", note: "cashmere cat x major lazer x tory lanez — the production is immaculate", vibe: "pop · smooth" },
+      { title: "Solar Drive @ Night", artist: "Tory Lanez", spotifyId: "", note: "tory lanez late night vibes!! fits woojin's composer ear perfectly", vibe: "R&B · late night" },
+      { title: "BUTTERFLY EFFECT", artist: "Travis Scott", spotifyId: "", note: "travis scott classic!! the psychedelic sound fits woojin's artistic side", vibe: "hip-hop · psychedelic" },
+      { title: "TELEKINESIS", artist: "Travis Scott ft. SZA & Future", spotifyId: "", note: "utopia era travis!! SZA and future features make this insane", vibe: "hip-hop · atmospheric" },
+      { title: "DESERVE YOU", artist: "The Kid LAROI", spotifyId: "", note: "kid laroi on the playlist!! woojin's range of taste is impressive", vibe: "pop · emotional" },
+      { title: "D1", artist: "Lil Tecca", spotifyId: "", note: "lil tecca deep cut!! woojin really searches for new songs daily", vibe: "hip-hop · catchy" },
+      { title: "Cleo!", artist: "Bryson Tiller", spotifyId: "", note: "bryson tiller's smooth side!! perfect for woojin's R&B taste", vibe: "trapsoul · smooth" },
+      { title: "Wild for the Night", artist: "A$AP Rocky ft. Skrillex & Birdy Nam Nam", spotifyId: "", note: "A$AP rocky x skrillex goes HARD!! woojin loves the energy", vibe: "hip-hop · hype" },
     ],
   },
   {
@@ -331,12 +343,18 @@ const MEMBERS = [
       { title: "Soft Spot", artist: "keshi", spotifyId: "2aL4lMGhWdPpyPL6COPou7", note: "keshi's soft vocals match louis's own vocal style so well", vibe: "indie R&B · tender" },
       { title: "Here We Go... Again", artist: "The Weeknd ft. Tyler, The Creator", spotifyId: "0khQeEwEv6GndVypzpGOG5", note: "weeknd x tyler collab!! louis has elite taste in collabs", vibe: "R&B · atmospheric" },
       { title: "Intentions", artist: "Justin Bieber ft. Quavo", spotifyId: "4umIPjkehX1r7uhmGvXiSV", note: "bieber fan louis strikes again!! the sweet vibes are so him", vibe: "pop · sweet" },
+      { title: "jeans", artist: "Shotlo", spotifyId: "", note: "shotlo on the playlist!! louis always finds the coolest picks", vibe: "alternative · chill" },
+      { title: "Amiri Trendsetter", artist: "Rich Amiri & OsamaSon", spotifyId: "", note: "rich amiri x osamason collab!! louis stays discovering new music", vibe: "hip-hop · underground" },
       { title: "Wavy", artist: "Ty Dolla $ign ft. Joe Moses", spotifyId: "6oECOh5nAYmxz4EiYhjsPi", note: "ty dolla $ign influence showing!! the smooth waviness fits", vibe: "R&B · wavy" },
-      { title: "Guilty Conscience", artist: "070 Shake", spotifyId: "50aTwBKhPD3D3BW04UtjmA", note: "shares with ohyul — 070 shake is truly an LNGSHOT group fav", vibe: "dark · introspective" },
-      { title: "How Deep Is Your Love", artist: "Calvin Harris & Disciples", spotifyId: "22mek4IiqubGD9ctzxc69s", note: "house music on the list!! louis's taste has range", vibe: "house · groovy" },
-      { title: "STAY", artist: "The Kid LAROI & Justin Bieber", spotifyId: "5HCyWlXZPP0y6Gqq8TgA20", note: "bieber collab AND kid laroi?? louis WOULD pick this", vibe: "pop · catchy" },
-      { title: "Ransom", artist: "Lil Tecca", spotifyId: "2MQojywJbqOaWjuIbRG0d8", note: "viral hit energy — louis knows what's trending", vibe: "hip-hop · catchy" },
-      { title: "Don't", artist: "Bryson Tiller", spotifyId: "6T7AoQDVwLKZ04sfIca4Kl", note: "trapsoul classic!! bryson tiller's R&B influence on louis is real", vibe: "trapsoul · smooth" },
+      { title: "Slide", artist: "Calvin Harris ft. Frank Ocean & Migos", spotifyId: "", note: "calvin harris x frank ocean x migos — summer vibes forever!!", vibe: "pop · summer" },
+      { title: "Guilty Conscience", artist: "070 Shake", spotifyId: "50aTwBKhPD3D3BW04UtjmA", note: "070 shake is truly an LNGSHOT group fav — shared with ohyul", vibe: "dark · introspective" },
+      { title: "Deja Vu", artist: "Post Malone ft. Justin Bieber", spotifyId: "", note: "post malone x bieber!! louis's bieber appreciation strikes again", vibe: "pop · smooth" },
+      { title: "Free Melly", artist: "YNW BSlime ft. DC The Don", spotifyId: "", note: "YNW BSlime on the list!! louis supports the underground", vibe: "hip-hop · raw" },
+      { title: "LOVE.", artist: "Kendrick Lamar ft. ZACARI", spotifyId: "", note: "kendrick!! the ZACARI vocals on this are so beautiful", vibe: "hip-hop · romantic" },
+      { title: "Be Easy", artist: "Odeal ft. Brent Faiyaz", spotifyId: "", note: "odeal x brent faiyaz vibes!! the smooth R&B is so louis", vibe: "R&B · smooth" },
+      { title: "360", artist: "Charli xcx", spotifyId: "", note: "charli xcx pick!! louis's taste really has no limits", vibe: "pop · dance" },
+      { title: "Violent Crimes", artist: "Kanye West", spotifyId: "", note: "kanye's emotional side!! the vulnerability on this track is everything", vibe: "hip-hop · emotional" },
+      { title: "Die for You", artist: "Joji", spotifyId: "", note: "joji!! the nostalgic sound matches louis's vibe perfectly", vibe: "indie · nostalgic" },
     ],
   },
 ];
@@ -788,13 +806,13 @@ function HotContent() {
 // ─── Next Event / Schedule ───
 // Fallback event data in case API is not configured yet
 const FALLBACK_EVENT = {
-  title: "ComplexCon Hong Kong",
-  date: "2026-03-21T20:00:00+08:00",
-  venue: "AsiaWorld-Expo, Hong Kong",
-  note: "Complex Live! Concert at ComplexCon Hong Kong 2026. LNGSHOT's first ever Hong Kong performance — performing alongside Jay Park, JENNIE, Yeat & Crush.",
+  title: "Release Event & Fansign Tokyo",
+  date: "2026-04-11T18:00:00+09:00",
+  venue: "CUTUP STUDIO, Tower Records Shibuya, Tokyo",
+  note: "LNGSHOT Release Event & Fansign at Tower Records Shibuya B1F CUTUP STUDIO.",
   color: "#FF3CAC",
-  ticketUrl: "https://www.complexconhk.com/complex-live",
-  tags: ["LIVE", "FIRST HK SHOW"],
+  ticketUrl: "",
+  tags: ["FANSIGN", "TOKYO"],
 };
 
 function NextEventCard() {
@@ -974,6 +992,203 @@ function NextEventCard() {
         >
           🎟️ tickets & info
         </a>
+      </div>
+    </div>
+  );
+}
+
+// ─── Full Schedule ───
+const UPCOMING_SCHEDULE = [
+  {
+    date: "2026-04-11",
+    title: "Release Event & Fansign",
+    location: "Tokyo, Japan",
+    venue: "CUTUP STUDIO, Tower Records Shibuya",
+    color: "#FF3CAC",
+    tag: "FANSIGN",
+    ticketUrl: "",
+  },
+  {
+    date: "2026-04-14",
+    title: "K2O Songkran Music Festival",
+    location: "Bangkok, Thailand",
+    venue: "S2O LAND Ratchada",
+    color: "#00C9FF",
+    tag: "FESTIVAL",
+    ticketUrl: "https://www.eventpop.me/e/134917",
+  },
+  {
+    date: "2026-04-15",
+    title: "Fansign",
+    location: "Bangkok, Thailand",
+    venue: "",
+    color: "#FF3CAC",
+    tag: "FANSIGN",
+    ticketUrl: "",
+  },
+  {
+    date: "2026-05-02",
+    title: "HIPHOPPLAYA Festival",
+    location: "Seoul, Korea",
+    venue: "KINTEX Hall 9-10",
+    color: "#7B61FF",
+    tag: "FESTIVAL",
+    ticketUrl: "https://world.nol.com/en/ticket/places/25000183/products/26003144",
+  },
+  {
+    date: "2026-05-22",
+    title: "Channel B Baseball Music Festival",
+    location: "Taipei, Taiwan",
+    venue: "Taipei Dome",
+    color: "#FF6B35",
+    tag: "FESTIVAL",
+    ticketUrl: "",
+  },
+  {
+    date: "2026-06-21",
+    title: "RAPBEAT Festival",
+    location: "Seoul, Korea",
+    venue: "Oil Tank Culture Park",
+    color: "#FFD600",
+    tag: "FESTIVAL",
+    ticketUrl: "https://rapbeatfestival.com/",
+  },
+  {
+    date: "2026-08-08",
+    title: "Head In The Clouds LA",
+    location: "Pasadena, USA",
+    venue: "Brookside at the Rose Bowl",
+    color: "#00E5A0",
+    tag: "FESTIVAL",
+    ticketUrl: "https://la.hitcfestival.com/",
+  },
+];
+
+function UpcomingSchedule() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const formatDate = (dateStr) => {
+    const d = new Date(dateStr + "T00:00:00");
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  };
+
+  const getDaysUntil = (dateStr) => {
+    const target = new Date(dateStr + "T00:00:00");
+    const diff = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+    if (diff === 0) return "TODAY";
+    if (diff === 1) return "TOMORROW";
+    if (diff < 0) return "PAST";
+    return `${diff}d`;
+  };
+
+  const upcoming = UPCOMING_SCHEDULE.filter(e => {
+    const target = new Date(e.date + "T00:00:00");
+    return target >= today;
+  });
+
+  if (upcoming.length === 0) return null;
+
+  return (
+    <div style={{ marginBottom: 28 }}>
+      {/* Section header */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+        <div style={{ width: 5, height: 28, borderRadius: 3, background: "linear-gradient(180deg, #7B61FF, #7B61FF44)" }} />
+        <div>
+          <div style={{
+            fontSize: 14, fontWeight: 700, color: "#7B61FFbb",
+            letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
+          }}>
+            UPCOMING SCHEDULE
+          </div>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", marginTop: 2 }}>
+            {upcoming.length} events coming up
+          </div>
+        </div>
+      </div>
+
+      {/* Schedule list */}
+      <div style={{
+        background: "linear-gradient(135deg, rgba(123,97,255,0.07), rgba(123,97,255,0.02))",
+        borderRadius: 18, padding: "6px 0",
+        border: "1px solid rgba(123,97,255,0.12)",
+        overflow: "hidden",
+      }}>
+        {upcoming.map((evt, i) => {
+          const daysLabel = getDaysUntil(evt.date);
+          const isSoon = daysLabel === "TODAY" || daysLabel === "TOMORROW" || (parseInt(daysLabel) <= 7);
+          return (
+            <div key={i}>
+              {i > 0 && <div style={{ height: 1, background: "rgba(255,255,255,0.04)", margin: "0 16px" }} />}
+              <div style={{
+                display: "flex", alignItems: "center", gap: 12,
+                padding: "14px 16px",
+                transition: "background 0.2s ease",
+                cursor: evt.ticketUrl ? "pointer" : "default",
+              }}
+                onClick={() => evt.ticketUrl && window.open(evt.ticketUrl, "_blank")}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.03)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
+              >
+                {/* Date block */}
+                <div style={{
+                  minWidth: 48, textAlign: "center",
+                  background: `${evt.color}15`, borderRadius: 10, padding: "8px 6px",
+                  border: `1px solid ${evt.color}20`,
+                }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: evt.color, fontFamily: "'Space Grotesk', sans-serif", letterSpacing: 0.5 }}>
+                    {formatDate(evt.date).split(" ")[0].toUpperCase()}
+                  </div>
+                  <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", fontFamily: "'Space Grotesk', sans-serif", lineHeight: 1.1 }}>
+                    {formatDate(evt.date).split(" ")[1]}
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 3 }}>
+                    <span style={{
+                      fontSize: 9, fontWeight: 700, color: evt.color,
+                      background: `${evt.color}18`, border: `1px solid ${evt.color}30`,
+                      padding: "2px 7px", borderRadius: 10, letterSpacing: 0.8,
+                      fontFamily: "'Space Grotesk', sans-serif",
+                    }}>{evt.tag}</span>
+                    {isSoon && (
+                      <span style={{
+                        fontSize: 9, fontWeight: 700, color: "#FF3CAC",
+                        background: "rgba(255,60,172,0.15)", border: "1px solid rgba(255,60,172,0.3)",
+                        padding: "2px 7px", borderRadius: 10, letterSpacing: 0.8,
+                        fontFamily: "'Space Grotesk', sans-serif",
+                      }}>SOON</span>
+                    )}
+                  </div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "#fff", fontFamily: "'Space Grotesk', sans-serif", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                    {evt.title}
+                  </div>
+                  <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", marginTop: 2 }}>
+                    📍 {evt.venue || evt.location}
+                    {evt.venue && evt.location ? ` · ${evt.location}` : ""}
+                  </div>
+                </div>
+
+                {/* Days counter / ticket arrow */}
+                <div style={{ textAlign: "right", minWidth: 40 }}>
+                  <div style={{
+                    fontSize: 12, fontWeight: 800, fontFamily: "'Space Grotesk', sans-serif",
+                    color: isSoon ? "#FF3CAC" : "rgba(255,255,255,0.25)",
+                  }}>
+                    {daysLabel}
+                  </div>
+                  {evt.ticketUrl && (
+                    <div style={{ fontSize: 10, color: "rgba(255,255,255,0.2)", marginTop: 2 }}>
+                      🎟️
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -2065,6 +2280,9 @@ export default function App() {
 
             {/* Next Event */}
             {!searchQuery && <NextEventCard />}
+
+            {/* Full Schedule */}
+            {!searchQuery && <UpcomingSchedule />}
 
             {/* Albums */}
             {!searchQuery && ALBUMS.map(album => (

@@ -11,7 +11,8 @@ Built with React + Vite. Deployed on Vercel.
 - **Hot Content** — Most viewed LNGSHOT videos fetched dynamically from YouTube API
 - **Live Corner** — Floating live performance playlist widget
 - **Did You Know?** — Rotating fun facts about the group and members
-- **Next Event** — Upcoming schedule with Google Calendar integration
+- **Next Event** — Countdown timer to the next LNGSHOT event (fallback + `/api/schedule` support)
+- **Upcoming Schedule** — Full event list with dates, venues, ticket links & days-until counters (auto-filters past events)
 - **Latest Buzz** — Latest content from official YouTube channels
 
 ## Dev
