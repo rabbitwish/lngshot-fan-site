@@ -1029,6 +1029,15 @@ const UPCOMING_SCHEDULE = [
     ticketUrl: "",
   },
   {
+    date: "2026-04-25",
+    title: "WIEA Entertainment Awards",
+    location: "Macau, China",
+    venue: "",
+    color: "#FFD600",
+    tag: "AWARDS",
+    ticketUrl: "",
+  },
+  {
     date: "2026-05-02",
     title: "HIPHOPPLAYA Festival",
     location: "Seoul, Korea",
