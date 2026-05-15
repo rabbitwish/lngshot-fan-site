@@ -589,6 +589,75 @@ function FloatingNotes() {
   );
 }
 
+function ComebackBanner() {
+  if (!COMEBACK_MODE) return null;
+  return (
+    <div style={{
+      width: "100%", maxWidth: 860, margin: "0 auto",
+      padding: "18px 16px 0", position: "relative", zIndex: 2,
+      animation: "fadeIn 0.8s ease",
+    }}>
+      <div style={{
+        position: "relative", borderRadius: 16, overflow: "hidden",
+        boxShadow: "0 4px 30px rgba(200, 0, 0, 0.3)",
+      }}>
+        <img
+          src="/4shoville-banner.jpg"
+          alt="4SHOVILLE — Jay Park & LNGSHOT"
+          style={{ width: "100%", display: "block", borderRadius: 16 }}
+        />
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.9) 100%)",
+          display: "flex", flexDirection: "column",
+          alignItems: "center", justifyContent: "flex-end",
+          padding: "20px 16px 24px", gap: 6,
+        }}>
+          <div style={{
+            fontSize: 11, color: "rgba(255, 0, 0, 0.7)",
+            letterSpacing: 3, fontWeight: 700,
+            fontFamily: "'Space Grotesk', sans-serif",
+            textTransform: "uppercase",
+          }}>
+            New Album · Jay Park & LNGSHOT
+          </div>
+          <div style={{
+            fontSize: 36, fontWeight: 900, color: "#CC0000",
+            letterSpacing: 3, lineHeight: 1,
+            fontFamily: "Georgia, 'Times New Roman', serif",
+            textShadow: "0 0 30px rgba(200, 0, 0, 0.5)",
+            textTransform: "uppercase",
+          }}>
+            4SHOVILLE
+          </div>
+          <div style={{
+            fontSize: 12, color: "rgba(255,255,255,0.4)",
+            letterSpacing: 2, fontFamily: "'Space Grotesk', sans-serif",
+          }}>
+            4SHOBOIZ VOL. 2 · 8 TRACKS
+          </div>
+          <a
+            href="https://open.spotify.com/prerelease/2fttug0AvQ63gdpXgMpJsS"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              marginTop: 8, padding: "10px 28px", borderRadius: 24,
+              background: "#CC0000", color: "#fff",
+              fontSize: 13, fontWeight: 700, letterSpacing: 1.5,
+              textDecoration: "none", border: "none",
+              fontFamily: "'Space Grotesk', sans-serif",
+              boxShadow: "0 4px 16px rgba(200, 0, 0, 0.4)",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
+          >
+            PRE-SAVE NOW
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Fan Note Bubble ───
 function FanNote({ text, small = false }) {
   return (
@@ -2313,6 +2382,7 @@ export default function App() {
 
       <FloatingNotes />
       <LivePlaylistWidget />
+      <ComebackBanner />
 
       {/* ── Woojin Birthday Banner (March 8 only) ── */}
       {(() => { const now = new Date(); return now.getMonth() === 2 && now.getDate() === 8; })() && (
