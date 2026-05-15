@@ -1056,6 +1056,15 @@ const UPCOMING_SCHEDULE = [
     ticketUrl: "",
   },
   {
+    date: "2026-05-24",
+    title: "K-Expo USA",
+    location: "Los Angeles, USA",
+    venue: "Peacock Theater",
+    color: "#FF3CAC",
+    tag: "FESTIVAL",
+    ticketUrl: "",
+  },
+  {
     date: "2026-06-21",
     title: "RAPBEAT Festival",
     location: "Seoul, Korea",

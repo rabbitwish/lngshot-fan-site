@@ -71,9 +71,20 @@ export default async function handler(req, res) {
     const results = await Promise.all(searches);
     const allVideos = results.flat();
 
+    // Filter to only videos that are actually about LNGSHOT
+    const LNGSHOT_KEYWORDS = [
+      "lngshot", "4shoboiz", "4shotape", "4shoboshow",
+      "ohyul", "woojin", "ryul", "louis",
+    ];
+    const isLngshotVideo = (title) => {
+      const lower = title.toLowerCase();
+      return LNGSHOT_KEYWORDS.some((kw) => lower.includes(kw));
+    };
+    const relevant = allVideos.filter((v) => isLngshotVideo(v.title));
+
     // Deduplicate by video ID
     const seen = new Set();
-    const unique = allVideos.filter((v) => {
+    const unique = relevant.filter((v) => {
       if (seen.has(v.id)) return false;
       seen.add(v.id);
       return true;
