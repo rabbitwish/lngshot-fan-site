@@ -2359,12 +2359,12 @@ export default function App() {
   const openMember = (member) => { setSelectedMember(member); setView("member"); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
   return (
-    <div style={{ minHeight: "100vh", background: "linear-gradient(160deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%)", color: "#fff", fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif", position: "relative" }}>
+    <div style={{ minHeight: "100vh", background: COMEBACK_MODE ? "linear-gradient(160deg, #0a0a0a 0%, #1a0a0a 40%, #0d0d0d 100%)" : "linear-gradient(160deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%)", color: "#fff", fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif", position: "relative" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { margin: 0; background: #1a1a2e; }
-        ::selection { background: #FF6B3566; color: #fff; }
+        body { margin: 0; background: ${COMEBACK_MODE ? "#0a0a0a" : "#1a1a2e"}; }
+        ::selection { background: ${COMEBACK_MODE ? "#cc000066" : "#FF6B3566"}; color: #fff; }
         @keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 0.07; } 50% { opacity: 0.1; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
@@ -2423,12 +2423,12 @@ export default function App() {
         {/* Header */}
         <header style={{ textAlign: "center", paddingTop: 40, paddingBottom: 10, animation: "fadeIn 0.5s ease" }}>
           <div style={{ fontSize: 16, color: "rgba(255, 182, 193, 0.5)", marginBottom: 8, fontStyle: "italic", letterSpacing: 0.5 }}>~ a fan page by a 4shoboiz ~</div>
-          <div style={{ display: "inline-block", marginBottom: 6, background: "linear-gradient(135deg, #FF6B35, #E74C3C, #9B59B6, #3498DB)", backgroundSize: "300% 300%", animation: "gradientShift 4s ease infinite", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 48, fontWeight: 800, letterSpacing: -2, lineHeight: 1.1, fontFamily: "'Space Grotesk', sans-serif" }}>
+          <div style={{ display: "inline-block", marginBottom: 6, background: COMEBACK_MODE ? "linear-gradient(135deg, #ff1a1a, #cc0000, #8B0000)" : "linear-gradient(135deg, #FF6B35, #E74C3C, #9B59B6, #3498DB)", backgroundSize: "300% 300%", animation: "gradientShift 4s ease infinite", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 48, fontWeight: 800, letterSpacing: -2, lineHeight: 1.1, fontFamily: "'Space Grotesk', sans-serif" }}>
             LNGSHOT
           </div>
-          <div style={{ fontSize: 15, color: "rgba(255,255,255,0.35)", letterSpacing: 2, fontWeight: 500, marginTop: 2 }}>MUSIC & VIBES</div>
+          <div style={{ fontSize: 15, color: COMEBACK_MODE ? "rgba(255,60,60,0.35)" : "rgba(255,255,255,0.35)", letterSpacing: 2, fontWeight: 500, marginTop: 2 }}>MUSIC & VIBES</div>
           <div style={{ fontSize: 14, color: "rgba(255,255,255,0.2)", marginTop: 10, letterSpacing: 1 }}>OHYUL · RYUL · WOOJIN · LOUIS</div>
-          <div style={{ width: 40, height: 3, borderRadius: 2, background: "linear-gradient(90deg, #FF6B35, #9B59B6)", margin: "12px auto 0" }} />
+          <div style={{ width: 40, height: 3, borderRadius: 2, background: COMEBACK_MODE ? "linear-gradient(90deg, #cc0000, #8B0000)" : "linear-gradient(90deg, #FF6B35, #9B59B6)", margin: "12px auto 0" }} />
         </header>
 
         {/* Welcome message */}
