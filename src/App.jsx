@@ -2508,8 +2508,8 @@ export default function App() {
                   <FanNote text={album.fanNote} small />
                 </div>
 
-                {/* Spotify Album Embed */}
-                {album.spotifyAlbumId && (
+                {/* Spotify Album Embed — only show if songs have Spotify IDs (i.e. album is released) */}
+                {album.spotifyAlbumId && album.songs.some(s => s.spotifyId) && (
                   <div style={{ borderRadius: 14, overflow: "hidden", marginBottom: 16, border: `1px solid ${album.color}25` }}>
                     <iframe
                       style={{ borderRadius: 14, border: "none" }}
@@ -2524,7 +2524,7 @@ export default function App() {
                 {/* Open on Spotify CTA */}
                 {album.spotifyAlbumId && (
                   <a
-                    href={`https://open.spotify.com/album/${album.spotifyAlbumId}`}
+                    href={album.songs.some(s => s.spotifyId) ? `https://open.spotify.com/album/${album.spotifyAlbumId}` : `https://open.spotify.com/prerelease/${album.spotifyAlbumId}`}
                     target="_blank" rel="noopener noreferrer"
                     style={{
                       display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
@@ -2538,7 +2538,7 @@ export default function App() {
                     onMouseLeave={(e) => { e.currentTarget.style.background = `${album.color}15`; }}
                   >
                     <SpotifyIcon />
-                    open {album.title.toLowerCase()} on Spotify
+                    {album.songs.some(s => s.spotifyId) ? `open ${album.title.toLowerCase()} on Spotify` : `pre-save ${album.title.toLowerCase()} on Spotify`}
                   </a>
                 )}
               </div>
