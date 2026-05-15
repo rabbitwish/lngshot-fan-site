@@ -637,22 +637,39 @@ function ComebackBanner() {
           }}>
             4SHOBOIZ VOL. 2 · 8 TRACKS
           </div>
-          <a
-            href="https://open.spotify.com/prerelease/2fttug0AvQ63gdpXgMpJsS"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              marginTop: 8, padding: "10px 28px", borderRadius: 24,
-              background: "#CC0000", color: "#fff",
-              fontSize: 13, fontWeight: 700, letterSpacing: 1.5,
-              textDecoration: "none", border: "none",
-              fontFamily: "'Space Grotesk', sans-serif",
-              boxShadow: "0 4px 16px rgba(200, 0, 0, 0.4)",
-              transition: "transform 0.2s, box-shadow 0.2s",
-            }}
-          >
-            PRE-SAVE NOW
-          </a>
+          <div style={{ display: "flex", gap: 10, marginTop: 8, flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="http://weverse.io/lngshot/notice/35785"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: "10px 24px", borderRadius: 24,
+                background: "#CC0000", color: "#fff",
+                fontSize: 13, fontWeight: 700, letterSpacing: 1.5,
+                textDecoration: "none", border: "none",
+                fontFamily: "'Space Grotesk', sans-serif",
+                boxShadow: "0 4px 16px rgba(200, 0, 0, 0.4)",
+                transition: "transform 0.2s, box-shadow 0.2s",
+              }}
+            >
+              PRE-ORDER
+            </a>
+            <a
+              href="http://ffm.to/4shoville"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: "10px 24px", borderRadius: 24,
+                background: "transparent", color: "#CC0000",
+                fontSize: 13, fontWeight: 700, letterSpacing: 1.5,
+                textDecoration: "none", border: "2px solid #CC0000",
+                fontFamily: "'Space Grotesk', sans-serif",
+                transition: "transform 0.2s, box-shadow 0.2s",
+              }}
+            >
+              PRE-SAVE
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -2522,9 +2539,9 @@ export default function App() {
                 )}
 
                 {/* Open on Spotify CTA */}
-                {album.spotifyAlbumId && (
+                {album.spotifyAlbumId && album.songs.some(s => s.spotifyId) && (
                   <a
-                    href={album.songs.some(s => s.spotifyId) ? `https://open.spotify.com/album/${album.spotifyAlbumId}` : `https://open.spotify.com/prerelease/${album.spotifyAlbumId}`}
+                    href={`https://open.spotify.com/album/${album.spotifyAlbumId}`}
                     target="_blank" rel="noopener noreferrer"
                     style={{
                       display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
@@ -2538,8 +2555,45 @@ export default function App() {
                     onMouseLeave={(e) => { e.currentTarget.style.background = `${album.color}15`; }}
                   >
                     <SpotifyIcon />
-                    {album.songs.some(s => s.spotifyId) ? `open ${album.title.toLowerCase()} on Spotify` : `pre-save ${album.title.toLowerCase()} on Spotify`}
+                    {`open ${album.title.toLowerCase()} on Spotify`}
                   </a>
+                )}
+                {album.spotifyAlbumId && !album.songs.some(s => s.spotifyId) && (
+                  <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                    <a
+                      href="http://weverse.io/lngshot/notice/35785"
+                      target="_blank" rel="noopener noreferrer"
+                      style={{
+                        flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                        padding: "12px 16px", borderRadius: 12,
+                        background: `${album.color}15`, border: `1px solid ${album.color}35`,
+                        color: album.color, fontSize: 13, fontWeight: 600,
+                        fontFamily: "'Space Grotesk', sans-serif", cursor: "pointer",
+                        textDecoration: "none", transition: "all 0.2s ease"
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = `${album.color}30`; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = `${album.color}15`; }}
+                    >
+                      pre-order {album.title.toLowerCase()}
+                    </a>
+                    <a
+                      href="http://ffm.to/4shoville"
+                      target="_blank" rel="noopener noreferrer"
+                      style={{
+                        flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                        padding: "12px 16px", borderRadius: 12,
+                        background: `${album.color}15`, border: `1px solid ${album.color}35`,
+                        color: album.color, fontSize: 13, fontWeight: 600,
+                        fontFamily: "'Space Grotesk', sans-serif", cursor: "pointer",
+                        textDecoration: "none", transition: "all 0.2s ease"
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = `${album.color}30`; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = `${album.color}15`; }}
+                    >
+                      <SpotifyIcon />
+                      pre-save on Spotify
+                    </a>
+                  </div>
                 )}
               </div>
             ))}

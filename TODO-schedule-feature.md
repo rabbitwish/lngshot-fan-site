@@ -60,12 +60,18 @@ const SCHEDULE = [
 - Pull schedule data from an external source (Google Sheet, Notion API, or JSON file hosted on GitHub) so non-devs can update it easily
 
 ### 5. Data Source Options
-- **Phase 1**: Hardcoded `SCHEDULE` array in App.jsx (simple, works now)
-- **Phase 2**: Move to a separate `schedule.json` file in `/public` → fetch at runtime
-- **Phase 3**: Google Sheets as CMS → fetch via Sheets API (no backend needed, easy for fans to edit)
+- **Phase 1**: ~~Hardcoded `SCHEDULE` array in App.jsx (simple, works now)~~ DONE — `UPCOMING_SCHEDULE` array in App.jsx
+- **Phase 2**: ~~Move to a separate `schedule.json` file in `/public` → fetch at runtime~~ SKIPPED
+- **Phase 3**: ~~Google Sheets as CMS~~ → Switched to **Google Calendar** as CMS — DONE
+  - Calendar: `lngshotsched4sho@gmail.com` (community-maintained, must be public)
+  - API endpoint: `/api/schedule.js` — Vercel serverless function using Google Calendar API v3
+  - Uses `GOOGLE_API_KEY` env var (falls back to `YOUTUBE_API_KEY`)
+  - Caches results for 1 hour, fetches next 5 upcoming events
+  - Supports structured event descriptions (Tickets:, Tags:, Venue: fields)
 
 ---
 
 ## Priority: Medium
-## Status: Planned — not yet started
+## Status: Partially implemented — schedule section live with hardcoded + Google Calendar data
 ## Created: 2026-02-27
+## Updated: 2026-05-15
