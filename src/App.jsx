@@ -816,7 +816,7 @@ function SongDetail({ song, album, onBack }) {
           share the love ~
         </div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <LinkButton href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`🎵 listening to "${song.title}" by LNGSHOT\n${album.title}\n\nhttps://open.spotify.com/track/${song.spotifyId}\n\n#LNGSHOT #4SHOBOIZ`)}`} icon={<span style={{ fontSize: 14 }}>𝕏</span>} label="Post on X" />
+          <LinkButton href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`🎵 listening to "${song.title}" by LNGSHOT\n${album.title}\n\nhttps://open.spotify.com/track/${song.spotifyId}\n\n#LNGSHOT #SHOTTIES`)}`} icon={<span style={{ fontSize: 14 }}>𝕏</span>} label="Post on X" />
           <LinkButton href={`https://open.spotify.com/track/${song.spotifyId}`} icon={<span style={{ fontSize: 14 }}>🔗</span>} label="Spotify Link" />
         </div>
       </div>
@@ -1596,7 +1596,7 @@ function LatestBuzz() {
                 fontSize: 12, color: "rgba(249, 168, 212, 0.6)",
                 fontFamily: "'Space Grotesk', sans-serif", fontStyle: "italic",
               }}>
-                omg new content!! go watch 4shoboiz~ 💗
+                omg new content!! shotties go watch~ 💗
               </div>
               <a
                 href={`https://www.youtube.com/watch?v=${video.id}`}
@@ -2422,7 +2422,7 @@ export default function App() {
       <div style={{ maxWidth: 580, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1, paddingBottom: 40 }}>
         {/* Header */}
         <header style={{ textAlign: "center", paddingTop: 40, paddingBottom: 10, animation: "fadeIn 0.5s ease" }}>
-          <div style={{ fontSize: 16, color: "rgba(255, 182, 193, 0.5)", marginBottom: 8, fontStyle: "italic", letterSpacing: 0.5 }}>~ a fan page by a 4shoboiz ~</div>
+          <div style={{ fontSize: 16, color: "rgba(255, 182, 193, 0.5)", marginBottom: 8, fontStyle: "italic", letterSpacing: 0.5 }}>~ a fan page by a shottie ~</div>
           <div style={{ display: "inline-block", marginBottom: 6, background: COMEBACK_MODE ? "linear-gradient(135deg, #ff1a1a, #cc0000, #8B0000)" : "linear-gradient(135deg, #FF6B35, #E74C3C, #9B59B6, #3498DB)", backgroundSize: "300% 300%", animation: "gradientShift 4s ease infinite", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 48, fontWeight: 800, letterSpacing: -2, lineHeight: 1.1, fontFamily: "'Space Grotesk', sans-serif" }}>
             LNGSHOT
           </div>
@@ -2561,7 +2561,7 @@ export default function App() {
             {/* Footer */}
             <footer style={{ textAlign: "center", padding: "24px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
               <div style={{ fontSize: 14, color: "rgba(255,255,255,0.2)", lineHeight: 2 }}>
-                made with so much 🤍 by a proud 4shoboiz
+                made with so much 🤍 by a proud shottie
                 <br />
                 LNGSHOT · MORE VISION · Est. 2025
                 <br />
