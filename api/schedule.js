@@ -5,8 +5,8 @@
 let cache = { data: null, timestamp: 0 };
 const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
 
-// Public LNGSHOT Events calendar
-const LNGSHOT_CALENDAR_ID = "218b7375b31e6218c39a60873e26d2da7599eb3c4c7119ebceeeb362ea954137@group.calendar.google.com";
+// Public LNGSHOT schedule calendar (maintained by SHOTTIES)
+const LNGSHOT_CALENDAR_ID = "lngshotsched4sho@gmail.com";
 
 function parseDescription(desc) {
   if (!desc) return { note: "", ticketUrl: "", tags: [] };
