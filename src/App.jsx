@@ -489,6 +489,7 @@ const FUN_FACTS = [
   "The 4SHOVILLE album art features the group in matching black Adidas tracksuits with red stripes, shot in a warehouse",
   "GUKBBONG (국뽕) means 'national pride' in Korean slang — Jay Park and LNGSHOT turned it into a hip-hop anthem",
   "PUBLIC ENEMY 4SHOMIX features DJ Wegun, legendary Korean DJ affiliated with H1ghr Music",
+  "LNGSHOT's official fandom name is SHOTTIES — announced during the 4SHOVILLE era",
 ];
 
 // ─── Icons ───

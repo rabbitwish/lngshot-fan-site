@@ -1,6 +1,6 @@
 ---
 name: fan-art-generator
-description: Generate cute, hand-drawn style fan art illustrations as PNG images for music group members or characters. Use this skill whenever the user wants to create fan art, character illustrations, member portraits, idol art, chibi drawings, cute character cards, or any visual art depicting people/characters in an illustrative style. Also trigger when the user mentions creating art for a fan page, fan site, or fan community, or wants to make profile pictures, icons, or visual cards for group members. This skill generates actual face illustrations using AI image generation via Craiyon in the browser, then composites them into beautifully designed fan art cards.
+description: Generate cute, hand-drawn style fan art illustrations as PNG images for music group members or characters. Use this skill whenever the user wants to create fan art, character illustrations, member portraits, idol art, chibi drawings, cute character cards, or any visual art depicting people/characters in an illustrative style. Also trigger when the user mentions creating art for a fan page, fan site, SHOTTIES community, or fan community, or wants to make profile pictures, icons, or visual cards for group members. This skill generates actual face illustrations using AI image generation via Craiyon in the browser, then composites them into beautifully designed fan art cards.
 ---
 
 # Fan Art Generator

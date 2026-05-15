@@ -34,7 +34,7 @@ const SCHEDULE = [
 |----------|-------|---------|----------------|
 | tv       | 📺    | #3498DB | TV / Music Show|
 | concert  | 🎤    | #FF6B35 | Concert / Tour |
-| fansign  | 💜    | #9B59B6 | Fan Sign / Meet|
+| fansign  | 💜    | #9B59B6 | Fansign / SHOTTIES Meet|
 | vlive    | 🎬    | #2ECC71 | Live Stream    |
 | release  | 💿    | #E74C3C | New Release    |
 | variety  | 🎮    | #F39C12 | Variety / Other|

@@ -1,7 +1,7 @@
 # Feature: Member Favorite Songs & Spotify Playlists
 
 ## What
-Each member gets a "Songs I Love" / playlist section on their profile card or detail page, showing their favorite songs, recommended tracks, and musical influences — embedded as Spotify players or links. Fans can discover the music that inspires LNGSHOT.
+Each member gets a "Songs I Love" / playlist section on their profile card or detail page, showing their favorite songs, recommended tracks, and musical influences — embedded as Spotify players or links. SHOTTIES can discover the music that inspires LNGSHOT.
 
 ## Placement
 Inside each member's section (currently the "THE BOYS" grid). Clicking a member card could expand or navigate to a detail view that includes their playlist alongside their existing info.
@@ -170,7 +170,7 @@ This feature will grow over time as members share more recommendations:
 - Monitor Weverse posts where members share music
 - Check V-live/YouTube live streams for song mentions
 - Watch interviews for music taste questions
-- Fan-sourced: add a way for fans to submit verified recommendations
+- Fan-sourced: add a way for SHOTTIES to submit verified recommendations
 
 ---
 
