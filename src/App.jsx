@@ -24,7 +24,7 @@ const ALBUMS = [
         fanNote: "THE opener and it goes SO hard. jay park and the boys saying 'for sure for sure' — this is their statement track. instant concert energy",
         mood: "🔥",
         funFact: null,
-        featuring: null,
+        featuring: "Ohyul, Ryul, Woojin, Louis",
       },
       {
         id: "yeah-yeah",
@@ -36,7 +36,7 @@ const ALBUMS = [
         fanNote: "pure party energy!! the kind of track that makes you want to jump around. jay park's adlibs are everything",
         mood: "🎉",
         funFact: null,
-        featuring: null,
+        featuring: "Ohyul, Ryul, Woojin, Louis",
       },
       {
         id: "no-hi-no-hey",
@@ -48,7 +48,7 @@ const ALBUMS = [
         fanNote: "cold and confident. no greetings no small talk just straight bars. the attitude on this track is UNREAL",
         mood: "🖤",
         funFact: null,
-        featuring: null,
+        featuring: "Ohyul, Ryul, Woojin, Louis",
       },
       {
         id: "run-it-up",
@@ -60,7 +60,7 @@ const ALBUMS = [
         fanNote: "grind anthem!! this one hits different when you're working late. jay park really bringing that boss energy alongside the boys",
         mood: "💪",
         funFact: null,
-        featuring: null,
+        featuring: "Ohyul, Ryul, Woojin, Louis",
       },
       {
         id: "gukbbong",
@@ -72,7 +72,7 @@ const ALBUMS = [
         fanNote: "korean pride anthem!! gukbbong (국뽕) literally means national pride and they DELIVERED. this is going to go viral in korea mark my words",
         mood: "🇰🇷",
         funFact: "Gukbbong (국뽕) is Korean slang for intense national pride — Jay Park and LNGSHOT made it into a whole anthem",
-        featuring: null,
+        featuring: "Ohyul, Ryul, Woojin, Louis",
       },
       {
         id: "moya",
@@ -80,11 +80,11 @@ const ALBUMS = [
         duration: "",
         spotifyId: "1ACzcLe7HPprJQng3lu6qQ",
         credits: "Jay Park, LNGSHOT",
-        vibe: "aggressive · raw",
-        fanNote: "MOYA (뭐야) = 'what?!' and that's literally what i said when this track hit. the most aggressive thing lngshot has ever done. rap line going OFF",
-        mood: "😤",
+        vibe: "romantic · confused",
+        fanNote: "MOYA (뭐야) = 'what?!' but this time it's about love!! they don't know what's going on with their own hearts and it's the softest thing on the album. unexpected from a jay park collab but it WORKS so well",
+        mood: "💘",
         funFact: null,
-        featuring: null,
+        featuring: "Ohyul, Ryul, Woojin, Louis",
       },
       {
         id: "the-purge-4shomix",
@@ -96,7 +96,7 @@ const ALBUMS = [
         fanNote: "4SHOMIX remix and it's DARK. the production on this is insane — heavy bass, eerie synths, and jay park going absolutely feral",
         mood: "🌑",
         funFact: null,
-        featuring: null,
+        featuring: "Ohyul, Ryul, Woojin, Louis",
       },
       {
         id: "public-enemy-4shomix",
@@ -108,7 +108,7 @@ const ALBUMS = [
         fanNote: "DJ WEGUN FEATURE!! the bass on this could literally shake walls. perfect closer — they saved the heaviest track for last and i am FLOORED",
         mood: "💀",
         funFact: "Features DJ Wegun, legendary Korean DJ and H1ghr Music affiliate — his bass production is on another level",
-        featuring: "DJ Wegun",
+        featuring: "Ohyul, Ryul, Woojin, Louis, DJ Wegun",
       },
     ],
   },
