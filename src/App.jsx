@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const COMEBACK_MODE = true;
+const COMEBACK_MODE = new Date() < new Date("2026-06-18T23:59:59");
 
 // ─── Song Data with fan notes ───
 const ALBUMS = [
@@ -620,7 +620,7 @@ function ComebackBanner() {
             fontFamily: "'Space Grotesk', sans-serif",
             textTransform: "uppercase",
           }}>
-            New Album · Jay Park & LNGSHOT
+            OUT NOW · Jay Park & LNGSHOT
           </div>
           <div style={{
             fontSize: 36, fontWeight: 900, color: "#CC0000",
@@ -639,7 +639,7 @@ function ComebackBanner() {
           </div>
           <div style={{ display: "flex", gap: 10, marginTop: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <a
-              href="http://weverse.io/lngshot/notice/35785"
+              href="http://ffm.to/4shoville"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -652,10 +652,10 @@ function ComebackBanner() {
                 transition: "transform 0.2s, box-shadow 0.2s",
               }}
             >
-              PRE-ORDER
+              LISTEN NOW
             </a>
             <a
-              href="http://ffm.to/4shoville"
+              href="http://weverse.io/lngshot/notice/35785"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -667,7 +667,7 @@ function ComebackBanner() {
                 transition: "transform 0.2s, box-shadow 0.2s",
               }}
             >
-              PRE-SAVE
+              ORDER
             </a>
           </div>
         </div>
