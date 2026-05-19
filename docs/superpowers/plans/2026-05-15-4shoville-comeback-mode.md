@@ -1,10 +1,10 @@
 # 4SHOVILLE Comeback Mode Implementation Plan
 
-> **Status: COMPLETED** (2026-05-15). All tasks implemented and deployed to https://4shoboiz.work/. Post-implementation fixes: Spotify embed handling for prerelease albums, SHOTTIES fandom name updates across site and docs.
+> **Status: COMPLETED** (2026-05-15, updated 2026-05-19). All tasks implemented and deployed to https://4shoboiz.work/. Post-release updates: Spotify IDs populated, banner changed to OUT NOW/LISTEN NOW, COMEBACK_MODE now date-based (auto-expires June 18, 2026), member featuring added to all tracks, MOYA vibe corrected to love song.
 
 **Goal:** Add a temporary "comeback mode" to the LNGSHOT fan site that promotes the 4SHOVILLE album with a hero banner, site-wide dark red theme, and full album in discography — all controlled by a single flag.
 
-**Architecture:** Single-file changes to `src/App.jsx` plus one image asset. A `COMEBACK_MODE` constant gates the banner and theme shift. The album entry in `ALBUMS` is permanent. Reverting the promo is a one-line change.
+**Architecture:** Single-file changes to `src/App.jsx` plus one image asset. A date-driven `COMEBACK_MODE` constant (`new Date() < new Date("2026-06-18T23:59:59")`) gates the banner and theme shift — auto-expires one month after release. The album entry in `ALBUMS` is permanent.
 
 **Tech Stack:** React (Vite), inline styles, no CSS framework
 

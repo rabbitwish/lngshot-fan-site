@@ -7,8 +7,8 @@ Built with React + Vite. Deployed on Vercel.
 ## Features
 
 - **Member Profiles** — Photocard collection with chibi art, favorite songs & playlists
-- **Discography** — Full discography with Spotify embeds (4SHOVILLE, Training Day, SHOT CALLERS, 4SHOBOIZ MIXTAPE). Smart prerelease handling: unreleased albums show a pre-save link instead of a broken embed.
-- **Comeback Mode** — Temporary 4SHOVILLE promotional takeover with hero banner and dark red theme (toggle `COMEBACK_MODE` in App.jsx)
+- **Discography** — Full discography with Spotify embeds (4SHOVILLE, Training Day, SHOT CALLERS, 4SHOBOIZ MIXTAPE) with all track IDs and member featuring credits
+- **Comeback Mode** — 4SHOVILLE celebration takeover with hero banner and dark red theme (auto-expires June 18, 2026 — date-driven via `COMEBACK_MODE` in App.jsx)
 - **Hot Content** — Most viewed LNGSHOT videos fetched dynamically from YouTube API
 - **Live Corner** — Floating live performance playlist widget
 - **Did You Know?** — Rotating fun facts about the group and members

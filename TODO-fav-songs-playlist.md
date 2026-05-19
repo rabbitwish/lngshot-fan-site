@@ -190,8 +190,9 @@ This feature will grow over time as members share more recommendations:
 ---
 
 ## Priority: Medium-High
-## Status: Planned — research done, not yet implemented
+## Status: IMPLEMENTED — member favorite songs, Spotify playlists, and detail views live in App.jsx
 ## Created: 2026-03-02
+## Updated: 2026-05-19
 
 ## Sources
 - [Kpop Profiles — LNGSHOT Members Profile](https://kprofiles.com/more-vision-boys-members-profile/)

@@ -4,13 +4,13 @@ Temporary site takeover promoting LNGSHOT's new album **4SHOVILLE** (4SHOBOIZ VO
 
 ## 1. Comeback Mode Flag
 
-A single constant at the top of `App.jsx`:
+A date-driven constant at the top of `App.jsx`:
 
 ```js
-const COMEBACK_MODE = true;
+const COMEBACK_MODE = new Date() < new Date("2026-06-18T23:59:59");
 ```
 
-Controls: banner visibility, theme color shift. Set to `false` to revert. The album entry in discography is permanent regardless of this flag.
+Controls: banner visibility, theme color shift. Auto-expires June 18, 2026 (one month after album drop). The album entry in discography is permanent regardless of this flag.
 
 ## 2. Hero Image Banner
 
@@ -20,10 +20,11 @@ Controls: banner visibility, theme color shift. Set to `false` to revert. The al
 - Full-width with rounded bottom corners (16px)
 - Dark gradient overlay (bottom-heavy) for text legibility
 - Overlay content:
-  - "NEW ALBUM · JAY PARK & LNGSHOT" label (small, red, letter-spaced)
+  - "OUT NOW · JAY PARK & LNGSHOT" label (small, red, letter-spaced)
   - "4SHOVILLE" title (large, bold, #CC0000, serif/gothic feel)
   - "4SHOBOIZ VOL. 2 · 8 TRACKS" subtitle
-  - "PRE-SAVE NOW" button (#CC0000 background, links to `https://open.spotify.com/prerelease/2fttug0AvQ63gdpXgMpJsS`)
+  - "LISTEN NOW" button (#CC0000 background, links to `http://ffm.to/4shoville`)
+  - "ORDER" button (outline, links to Weverse notice)
 
 ## 3. Theme Color Shift
 
@@ -56,19 +57,19 @@ Add **4SHOVILLE** as the first entry in the `ALBUMS` array:
 
 ### Tracks
 
-| # | Title | Credits | Vibe | Notes |
-|---|---|---|---|---|
-| 1 | 4SHO 4SHO | Jay Park, LNGSHOT | hype · anthem | Title track energy |
-| 2 | YEAH! YEAH! | Jay Park, LNGSHOT | energetic · party | |
-| 3 | NO HI, NO HEY | Jay Park, LNGSHOT | bold · confident | |
-| 4 | RUN IT UP | Jay Park, LNGSHOT | hard · motivational | |
-| 5 | GUKBBONG | Jay Park, LNGSHOT | patriotic · powerful | Korean pride anthem |
-| 6 | MOYA | Jay Park, LNGSHOT | aggressive · raw | |
-| 7 | THE PURGE 4SHOMIX | Jay Park, LNGSHOT | dark · intense | 4SHOMIX remix |
-| 8 | PUBLIC ENEMY 4SHOMIX | Jay Park, LNGSHOT, DJ Wegun | heavy · bass | feat. DJ Wegun |
+| # | Title | Credits | Vibe | Featuring | Spotify ID |
+|---|---|---|---|---|---|
+| 1 | 4SHO 4SHO | Jay Park, LNGSHOT | hype · anthem | Ohyul, Ryul, Woojin, Louis | `3GK3htTIyOEq8gz3sPj6L0` |
+| 2 | YEAH! YEAH! | Jay Park, LNGSHOT | energetic · party | Ohyul, Ryul, Woojin, Louis | `7vmq3Ukd8csLDpCvoOM9Do` |
+| 3 | NO HI, NO HEY | Jay Park, LNGSHOT | bold · confident | Ohyul, Ryul, Woojin, Louis | `2RRxEwOgyeyiGyXuFMunSs` |
+| 4 | RUN IT UP | Jay Park, LNGSHOT | hard · motivational | Ohyul, Ryul, Woojin, Louis | `0YzpDSBP2htDtGqv8NBO41` |
+| 5 | GUKBBONG | Jay Park, LNGSHOT | patriotic · powerful | Ohyul, Ryul, Woojin, Louis | `0pL85aHxxulv9XtoB0S68m` |
+| 6 | MOYA | Jay Park, LNGSHOT | romantic · confused | Ohyul, Ryul, Woojin, Louis | `1ACzcLe7HPprJQng3lu6qQ` |
+| 7 | THE PURGE 4SHOMIX | Jay Park, LNGSHOT | dark · intense | Ohyul, Ryul, Woojin, Louis | `4oqHHJgfjye9n4ZIJhf8lo` |
+| 8 | PUBLIC ENEMY 4SHOMIX | Jay Park, LNGSHOT, DJ Wegun | heavy · bass | Ohyul, Ryul, Woojin, Louis, DJ Wegun | `3XDcumdbMgD411MNqqS77F` |
 
-- Spotify album ID: `2fttug0AvQ63gdpXgMpJsS` (prerelease, drops May 18)
-- Individual track Spotify IDs: empty strings until release day
+- Spotify album ID: `2PmrRGuWioIjWlJGvftkRl`
+- All track Spotify IDs populated (album released May 18, 2026)
 - Fan notes and fun facts written in the same casual excited tone as existing albums
 - Mood emojis per track
 
@@ -81,7 +82,9 @@ Add **4SHOVILLE** as the first entry in the `ALBUMS` array:
 
 ## 6. Status
 
-**Implemented and deployed** (2026-05-15). All features live at https://4shoboiz.work/. Additional post-implementation fixes:
-- Spotify embed hidden for prerelease albums (shows pre-save link instead)
-- When album releases on May 18, add individual track Spotify IDs to enable the embed
-- To end comeback mode: set `COMEBACK_MODE = false` in `App.jsx` line 3
+**Implemented and deployed** (2026-05-15, updated 2026-05-19). All features live at https://4shoboiz.work/. Post-release updates:
+- Album released May 18 — all Spotify track IDs and album ID populated
+- Banner updated from PRE-SAVE/PRE-ORDER to LISTEN NOW/ORDER
+- COMEBACK_MODE changed from manual toggle to date-based auto-expiry (June 18, 2026)
+- All tracks credited with member featuring (Ohyul, Ryul, Woojin, Louis)
+- MOYA vibe corrected: romantic/confused love song, not aggressive
